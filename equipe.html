@@ -1,191 +1,94 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Concessionnaire Automobile</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="Équipe et direction — Rouge Line Motors" />
+  <title>Notre équipe | Rouge Line Motors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/theme.css" />
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-    /* Underline animé */
-    nav a {
-      position: relative;
-      color: white; /* texte blanc */
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-    nav a::after {
-      content: '';
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      left: 0;
-      bottom: -4px;
-      background-color: #4f46e5;
-      transition: width 0.3s ease;
-      border-radius: 2px;
-    }
-    nav a:hover::after, nav a.active::after {
-      width: 100%;
-    }
-    nav a:hover {
-      color: #4338ca; /* indigo-700 */
-    }
-
-    /* Ombre + fond sombre au scroll */
-    .nav-shadow {
-      box-shadow: 0 2px 10px rgb(0 0 0 / 0.2);
-      backdrop-filter: saturate(180%) blur(10px);
-      background-color: rgba(17, 24, 39, 0.95); /* gris très foncé/indigo */
-      transition: box-shadow 0.3s ease, background-color 0.3s ease;
-    }
+    .team-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+    .team-card { padding: 1.75rem; text-align: center; transition: transform 0.25s ease; }
+    .team-card:hover { transform: translateY(-6px); }
+    .team-card img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(220,38,38,0.5); box-shadow: 0 8px 24px rgba(0,0,0,0.4); margin-bottom: 1rem; }
+    .team-role { color: #fca5a5; font-weight: 600; font-size: 0.9rem; margin: 0 0 0.75rem; }
+    .team-bio { margin: 0; font-size: 0.9rem; color: #a1a1aa; line-height: 1.55; }
   </style>
 </head>
-<body class="bg-gray-900 shadow-md transition-colors duration-300">
-
-<header id="header" 
-  class="fixed top-0 left-0 w-full z-50 
-         bg-gradient-to-r from-gray-900/80 via-indigo-900/80 to-gray-900/80 
-         shadow-md transition-colors duration-300">
-  <nav class="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 md:px-12 font-sans">
-    <!-- Logo + Nom -->
-    <a href="#" class="flex items-center gap-3">
-      <img src="https://i.goopics.net/u2rl1l.png" alt="Logo LTD Grove Street" class="w-10 h-10 rounded shadow-md" />
-      <span class="text-indigo-400 text-2xl font-extrabold tracking-tight hover:text-indigo-300 transition duration-300">
-        Concessionnaire Automobile
-      </span>
-    </a>
-
-    <!-- Menu Desktop -->
-    <nav class="hidden md:flex items-center justify-between gap-6 text-sm font-semibold text-white">
-      <ul class="flex items-center gap-6">
-        <li><a href="index.html" class="hover:text-indigo-300 transition">Accueil</a></li>
-        <li><a href="catalogue.html" class="hover:text-indigo-300 transition">Catalogue</a></li>
-        <li><a href="avis.html" class="hover:text-indigo-300 transition">Avis Clients</a></li>
-        <li><a href="equipe.html" class="hover:text-indigo-300 transition">Notre Équipe</a></li>
-        <li><a href="actualites.html" class="hover:text-indigo-300 transition">Actualités</a></li>
-        <li><a href="contact.html" class="hover:text-indigo-300 transition">Contact</a></li>
-      </ul>
-      <!-- Bouton Intranet -->
-      <a href="candidature.html"
-         class="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-purple-600 hover:to-indigo-500 text-white font-semibold text-sm py-2 px-4 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 ease-in-out whitespace-nowrap ml-6">
-        📝 Poster sa candidature
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo-link" href="index.html">
+        <span class="logo-mark" aria-hidden="true">◆</span>
+        <span>Rouge Line Motors</span>
       </a>
-    </nav>
-
-<!-- Hamburger mobile -->
-<button id="burger" class="md:hidden focus:outline-none relative z-50">
-  <svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" stroke-width="2"
-       viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="3" y1="6" x2="21" y2="6"></line>
-    <line x1="3" y1="12" x2="21" y2="12"></line>
-    <line x1="3" y1="18" x2="21" y2="18"></line>
-  </svg>
-</button>
-</nav>
-
-<!-- Menu Mobile -->
-<div id="mobileMenu" class="hidden md:hidden mx-4 mt-2 px-4 py-4 rounded-xl shadow-xl backdrop-blur-md border border-white/30 bg-white/10 text-white">
-  <ul class="flex flex-col gap-2 text-base font-medium text-center">
-    <li><a href="index.html" class="block py-1.5 rounded-lg hover:bg-white/20 transition">🏠 Accueil</a></li>
-    <li><a href="catalogue.html" class="block py-1.5 rounded-lg hover:bg-white/20 transition">📖 Catalogue</a></li>
-    <li><a href="avis.html" class="block py-1.5 rounded-lg hover:bg-white/20 transition">⭐ Avis Clients</a></li>
-    <li><a href="equipe.html" class="block py-1.5 rounded-lg hover:bg-white/20 transition">👥 Notre Équipe</a></li>
-    <li><a href="actualites.html" class="block py-1.5 rounded-lg hover:bg-white/20 transition">📰 Actualités</a></li>
-    <li><a href="contact.html" class="block py-1.5 rounded-lg hover:bg-white/20 transition">📩 Contact</a></li>
-    <li><a href="candidature.html" class="block py-1.5 rounded-lg hover:bg-white/20 transition">📝 Poster sa candidature</a></li>
-  </ul>
-</div>
-</header>
-
-<script>
-  // Toggle menu mobile
-  const burger = document.getElementById('burger');
-  const mobileMenu = document.getElementById('mobileMenu');
-
-  burger.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-  });
-
-  // Ombre barre au scroll
-  const header = document.getElementById('header');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 10) {
-      header.classList.add('nav-shadow');
-    } else {
-      header.classList.remove('nav-shadow');
-    }
-  });
-</script>
-</html>
-
-  <main class="max-w-6xl mx-auto p-2 mt-5">
-
-  <main class="mt-32 px-4">
-<h1 class="text-4xl md:text-5xl font-extrabold text-center mb-14 text-white tracking-tight">
-  Equipe de 
-  <span class="bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
-    Direction
-  </span>
-</h1>
-
-<!-- Hiérarchie -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-    <!-- Membre -->
-    <article class="bg-white/10 backdrop-blur-md rounded-xl shadow-lg p-8 text-center border border-white/10 transition transform hover:-translate-y-2 hover:shadow-2xl">
-      <img src="https://i.goopics.net/dqu5ct.png" alt="Photo Teeway" class="mx-auto rounded-full w-32 h-32 object-cover mb-6 shadow-md ring-2 ring-indigo-400/60" />
-      <h3 class="text-2xl font-extrabold mb-2 text-indigo-400">Teeway Beckers</h3>
-      <p class="italic text-indigo-300 mb-4">Chief Executive Officer</p>
-    </article>  
-
-    <article class="bg-white/10 backdrop-blur-md rounded-xl shadow-lg p-8 text-center border border-white/10 transition transform hover:-translate-y-2 hover:shadow-2xl">
-      <img src="https://i.goopics.net/6o4bkx.png" alt="Photo Marc Assin" class="mx-auto rounded-full w-32 h-32 object-cover mb-6 shadow-md ring-2 ring-indigo-400/60" />
-    <h3 class="text-2xl font-extrabold mb-2 text-indigo-400">Asma Hils</h3>
-      <p class="italic text-indigo-300 mb-4">Chief Operating Officer</p>
-    </article>
-    
-</section>
-
-
-
-<!-- Album Photo -->
-<section class="max-w-7xl mx-auto px-6 py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl shadow-2xl mt-20">
-  <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-14 text-white tracking-tight">
-    Album Photos
-  </h2>
-
-  <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
-    <!-- Carte image -->
-    <div class="group relative overflow-hidden rounded-xl bg-white/10 backdrop-blur-sm shadow-lg border border-white/10 cursor-pointer">
-      <img src="https://i.goopics.net/d6ie37.png" alt="Événement 1" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110" onclick="openLightbox(this.src)">
+      <nav class="nav-desktop" aria-label="Navigation principale">
+        <a data-nav href="index.html">Accueil</a>
+        <a data-nav href="actualites.html">Actualités</a>
+        <a data-nav href="equipe.html">Équipe</a>
+        <a data-nav href="avis.html">Avis clients</a>
+        <a data-nav href="contact.html">Contact direction</a>
+        <a class="btn-primary nav-cta" href="candidature.html">Candidater</a>
+      </nav>
+      <button type="button" class="burger" data-burger aria-label="Ouvrir le menu" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
     </div>
-
-    <div class="group relative overflow-hidden rounded-xl bg-white/10 backdrop-blur-sm shadow-lg border border-white/10 cursor-pointer">
-      <img src="https://i.goopics.net/elgj6h.png" alt="Événement 2" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110" onclick="openLightbox(this.src)">
+    <div class="mobile-panel glass" data-mobile-nav>
+      <a href="index.html">Accueil</a>
+      <a href="actualites.html">Actualités</a>
+      <a href="equipe.html">Équipe</a>
+      <a href="avis.html">Avis clients</a>
+      <a href="contact.html">Contact direction</a>
+      <a href="candidature.html">Candidater</a>
     </div>
+  </header>
 
-<!-- Lightbox -->
-<div id="lightbox" class="fixed inset-0 bg-black/90 flex items-center justify-center hidden z-50 transition-opacity duration-300">
-  <img id="lightbox-img" src="" alt="Zoom" class="max-w-full max-h-full rounded-lg shadow-2xl">
-</div>
+  <main class="container" style="padding-bottom: 4rem;">
+    <h1 class="section-title" style="margin-top: 1rem;">Équipe &amp; <span class="gradient-text">direction</span></h1>
+    <p style="text-align: center; color: #a1a1aa; max-width: 640px; margin: -2rem auto 3rem; line-height: 1.6;">Des profils complémentaires pour vous accompagner sur la durée : vente, financement, atelier et relation client.</p>
 
-<script>
-  function openLightbox(src) {
-    const lightbox = document.getElementById("lightbox");
-    const img = document.getElementById("lightbox-img");
-    img.src = src;
-    lightbox.classList.remove("hidden");
-  }
-  function closeLightbox() {
-    document.getElementById("lightbox").classList.add("hidden");
-  }
-  document.getElementById("lightbox").addEventListener("click", closeLightbox);
-</script>
+    <section class="team-grid">
+      <article class="glass team-card">
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="Portrait directeur général" />
+        <h2 style="margin: 0 0 0.25rem; font-size: 1.25rem;">Alexandre Vernier</h2>
+        <p class="team-role">Directeur général</p>
+        <p class="team-bio">Vision stratégique, partenariats constructeurs et politique qualité groupe.</p>
+      </article>
+      <article class="glass team-card">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Portrait directrice commerciale" />
+        <h2 style="margin: 0 0 0.25rem; font-size: 1.25rem;">Sarah Okonkwo</h2>
+        <p class="team-role">Directrice commerciale</p>
+        <p class="team-bio">Accompagnement personnalisé, financement et expérience d’achat digitale.</p>
+      </article>
+      <article class="glass team-card">
+        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80" alt="Portrait directeur après-vente" />
+        <h2 style="margin: 0 0 0.25rem; font-size: 1.25rem;">Marc Delaunay</h2>
+        <p class="team-role">Directeur après-vente</p>
+        <p class="team-bio">Atelier, pièces d’origine et engagement sur les délais d’intervention.</p>
+      </article>
+      <article class="glass team-card">
+        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80" alt="Portrait responsable RH" />
+        <h2 style="margin: 0 0 0.25rem; font-size: 1.25rem;">Julie Martel</h2>
+        <p class="team-role">Ressources humaines</p>
+        <p class="team-bio">Recrutement, intégration et développement des talents chez Rouge Line.</p>
+      </article>
+      <article class="glass team-card">
+        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80" alt="Portrait chef des ventes" />
+        <h2 style="margin: 0 0 0.25rem; font-size: 1.25rem;">Youssef Alami</h2>
+        <p class="team-role">Chef des ventes</p>
+        <p class="team-bio">Occasions certifiées, reprises et personnalisation véhicule neuf.</p>
+      </article>
+    </section>
+  </main>
 
-  <!-- Pied de page -->
-  <footer class="text-center py-6 text-gray-600 dark:text-gray-400 border-t border-gray-300 dark:border-gray-700 mt-12">
-    &copy; 2026 Concessionnaire Automobile. Tous droits réservés.
+  <footer class="footer">
+    <p style="margin: 0 0 0.5rem;"><strong>Rouge Line Motors</strong></p>
+    <p style="margin: 0;">© 2026 Rouge Line Motors.</p>
   </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
