@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="FR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="VIEWPORT" content="width=device-width, initial-scale=1.0">
     <title>AVIS CLIENTS | L'AUTO ELITE</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0d0d0d; color: #ffffff; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0d0d0d; color: #ffffff; overflow-x: hidden; }
         .header-gradient {
             background: linear-gradient(180deg, rgba(13,13,13,0) 0%, #0d0d0d 100%), 
                         url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2083&auto=format&fit=crop');
@@ -16,17 +16,22 @@
         .stats-panel { background: #151515; border: 1px solid #222; }
         .review-card { background: #1a1a1a; border: 1px solid #252525; transition: all 0.3s ease; position: relative; }
         .review-card:hover { border-color: #ff4d4d; transform: translateY(-5px); }
-        .input-dark { background: #111; border: 1px solid #222; color: white; outline: none; transition: 0.3s; text-transform: uppercase; }
+        
+        /* FORCE LES MAJUSCULES */
+        .force-caps { text-transform: uppercase; }
+        .input-dark { background: #111; border: 1px solid #222; color: white; outline: none; transition: 0.3s; }
         .input-dark:focus { border-color: #ff4d4d; background: #151515; }
         
-        /* SYSTÈME D'ÉTOILES INTERACTIVES */
+        /* ÉTOILES INTERACTIVES MODERNE */
         .star-rating { display: flex; flex-direction: row-reverse; justify-content: flex-end; gap: 8px; }
         .star-rating input { display: none; }
         .star-rating label { font-size: 2.5rem; color: #222; cursor: pointer; transition: 0.2s; }
         .star-rating label:hover, .star-rating label:hover ~ label,
         .star-rating input:checked ~ label { color: #ff4d4d; text-shadow: 0 0 15px rgba(255, 77, 77, 0.4); }
 
-        #modalAvis { backdrop-filter: blur(12px); display: none; }
+        #modalAvis { backdrop-filter: blur(12px); display: none; z-index: 1000; }
+        
+        /* BOUTON SUPPRESSION ADMIN */
         .admin-delete { display: none; position: absolute; top: 15px; right: 15px; background: #ff4d4d; color: white; border-radius: 50%; width: 22px; height: 22px; font-size: 14px; line-height: 1; cursor: pointer; border: none; font-weight: bold; }
         body.admin-mode .admin-delete { display: block; }
     </style>
@@ -46,53 +51,53 @@
 
     <header class="header-gradient pt-48 pb-24 px-6 text-center">
         <h1 class="text-[#ff4d4d] text-6xl md:text-8xl font-black uppercase tracking-tighter mb-4">ELITE <span class="text-white">REVIEWS</span></h1>
-        <p class="text-gray-500 text-xs font-black uppercase tracking-[0.4em]">EXPÉRIENCES CERTIFIÉES PAR NOS MEMBRES</p>
+        <p class="text-gray-500 text-[10px] font-black uppercase tracking-[0.4em]">LA SATISFACTION AU COEUR DE NOTRE ADN</p>
     </header>
 
-    <section class="max-w-5xl mx-auto px-6 -mt-12 relative z-10">
-        <div class="stats-panel rounded-[2.5rem] p-10 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
-            <div class="flex items-center gap-6">
-                <span id="moyenneNombre" class="text-7xl font-black text-white leading-none tracking-tighter">0.0</span>
-                <div>
-                    <div id="moyenneEtoiles" class="text-[#ff4d4d] text-2xl flex"></div>
-                    <span id="totalAvisLabel" class="text-[9px] text-gray-600 font-black uppercase tracking-widest">INITIALISATION...</span>
+    <section class="max-w-6xl mx-auto px-6 -mt-12 relative z-10">
+        <div class="stats-panel rounded-[2.5rem] p-10 shadow-2xl">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8 mb-8 border-b border-white/5 pb-8">
+                <div class="flex items-center gap-6">
+                    <span id="moyenneNombre" class="text-7xl font-black text-white leading-none tracking-tighter">0.0</span>
+                    <div>
+                        <div id="moyenneEtoiles" class="text-[#ff4d4d] text-2xl flex"></div>
+                        <span id="totalAvisLabel" class="text-[9px] text-gray-600 font-black uppercase tracking-widest uppercase">CALCUL EN COURS...</span>
+                    </div>
+                </div>
+                <button onclick="toggleModal()" class="bg-white text-black px-10 py-5 rounded-2xl text-[11px] font-black uppercase hover:bg-[#ff4d4d] hover:text-white transition duration-300">
+                    DÉPOSER UN AVIS
+                </button>
+            </div>
+
+            <div class="relative">
+                <input id="searchInput" type="text" placeholder="RECHERCHER UN CLIENT OU UN VENDEUR..." 
+                       class="w-full input-dark rounded-2xl p-5 text-xs font-bold force-caps tracking-widest pl-14">
+                <div class="absolute left-5 top-5 opacity-20">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                 </div>
             </div>
-            <button onclick="toggleModal()" class="bg-white text-black px-10 py-5 rounded-2xl text-[11px] font-black uppercase hover:bg-[#ff4d4d] hover:text-white transition duration-300 shadow-xl">
-                LAISSER UN AVIS
-            </button>
         </div>
     </section>
 
     <main class="max-w-7xl mx-auto px-6 py-20">
         <div id="avisList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+        <div id="noResults" class="hidden text-center py-20 opacity-20 font-black text-2xl uppercase tracking-tighter">AUCUN RÉSULTAT</div>
     </main>
 
-    <!-- MODAL MODERNE -->
-    <div id="modalAvis" class="fixed inset-0 z-[100] items-center justify-center p-6 bg-black/80">
-        <div class="bg-[#0f0f0f] w-full max-w-xl rounded-[3rem] p-12 border border-white/10 shadow-2xl overflow-y-auto max-h-[90vh]">
-            <h2 class="text-3xl font-black uppercase mb-8 tracking-tighter">VOTRE <span class="text-[#ff4d4d]">EXPÉRIENCE</span></h2>
+    <!-- MODAL DÉPÔT AVIS -->
+    <div id="modalAvis" class="fixed inset-0 flex items-center justify-center p-6 bg-black/80">
+        <div class="bg-[#0f0f0f] w-full max-w-xl rounded-[3rem] p-12 border border-white/10 shadow-2xl">
+            <h2 class="text-3xl font-black uppercase mb-8 tracking-tighter">VOTRE <span class="text-[#ff4d4d]">AVIS</span></h2>
             
             <form id="formAvis" class="space-y-6">
-                <div>
-                    <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2 ml-2">VOTRE NOM COMPLET</label>
-                    <input type="text" id="formNom" placeholder="EX: JEAN DUPONT" required class="w-full input-dark rounded-2xl p-5 text-xs font-bold uppercase">
-                </div>
+                <input type="text" id="formNom" placeholder="VOTRE NOM ET PRÉNOM" required class="w-full input-dark rounded-2xl p-5 text-xs font-bold force-caps">
 
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2 ml-2">PRÉNOM VENDEUR</label>
-                        <input type="text" id="vendeurPrenom" placeholder="EX: LEWIS" required class="w-full input-dark rounded-2xl p-5 text-xs font-bold uppercase">
-                    </div>
-                    <div>
-                        <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2 ml-2">NOM VENDEUR</label>
-                        <input type="text" id="vendeurNom" placeholder="EX: THOMPSON" required class="w-full input-dark rounded-2xl p-5 text-xs font-bold uppercase">
-                    </div>
-                </div>
+                <!-- CHAMP VENDEUR REGROUPÉ -->
+                <input type="text" id="vendeurComplet" placeholder="NOM DU VENDEUR (EX: LEWIS THOMPSON)" required class="w-full input-dark rounded-2xl p-5 text-xs font-bold force-caps">
 
                 <div>
-                    <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2 ml-2">VOTRE NOTE</label>
-                    <div class="star-rating px-2">
+                    <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-4">NOTEZ VOTRE EXPÉRIENCE</label>
+                    <div class="star-rating">
                         <input type="radio" id="star5" name="note" value="5" required /><label for="star5">★</label>
                         <input type="radio" id="star4" name="note" value="4" /><label for="star4">★</label>
                         <input type="radio" id="star3" name="note" value="3" /><label for="star3">★</label>
@@ -101,64 +106,83 @@
                     </div>
                 </div>
 
-                <div>
-                    <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2 ml-2">MESSAGE</label>
-                    <textarea id="formMessage" placeholder="RACONTEZ-NOUS VOTRE PASSAGE..." rows="4" required class="w-full input-dark rounded-2xl p-5 text-xs font-bold uppercase"></textarea>
-                </div>
+                <textarea id="formMessage" placeholder="VOTRE MESSAGE..." rows="4" required class="w-full input-dark rounded-2xl p-5 text-xs font-bold force-caps"></textarea>
 
                 <div class="flex flex-col gap-3 pt-4">
-                    <button type="submit" class="w-full bg-[#ff4d4d] text-white py-5 rounded-2xl text-[11px] font-black uppercase shadow-lg shadow-red-900/40 hover:scale-[1.02] transition">PUBLIER L'AVIS</button>
-                    <button type="button" onclick="toggleModal()" class="w-full text-gray-600 text-[10px] font-black uppercase tracking-widest hover:text-white transition">ANNULER</button>
+                    <button type="submit" class="w-full bg-[#ff4d4d] text-white py-5 rounded-2xl text-[11px] font-black uppercase shadow-lg shadow-red-900/40 hover:scale-[1.02] transition">PUBLIER</button>
+                    <button type="button" onclick="toggleModal()" class="w-full text-gray-600 text-[10px] font-black uppercase tracking-widest">ANNULER</button>
                 </div>
             </form>
         </div>
     </div>
 
     <script>
-        let avisData = JSON.parse(localStorage.getItem('elite_avis_v3')) || [
-            { id: 1, nom: "ZAYN ALLEN", date: "27 AVRIL 2026", message: "UNE EXPÉRIENCE D'ACHAT INÉGALÉE. L'ÉQUIPE EST D'UN PROFESSIONNALISME RARE.", note: 5, vendeur: "LEWIS THOMPSON" },
-            { id: 2, nom: "SOPHIA MARTIN", date: "28 AVRIL 2026", message: "J'AI TROUVÉ LA VOITURE DE MES RÊVES. SERVICE PARFAIT.", note: 5, vendeur: "TEEWAY BECKERS" }
-        ];
+        // RÉCUPÉRATION DES DONNÉES
+        let avisData = JSON.parse(localStorage.getItem('elite_avis_final_v4')) || [];
+
+        // FORCE LES MAJUSCULES EN DIRECT
+        document.addEventListener('input', (e) => {
+            if (e.target.classList.contains('force-caps')) {
+                e.target.value = e.target.value.toUpperCase();
+            }
+        });
 
         function save() {
-            localStorage.setItem('elite_avis_v3', JSON.stringify(avisData));
-            renderAvis();
+            localStorage.setItem('elite_avis_final_v4', JSON.stringify(avisData));
+            renderAvis(avisData);
         }
 
         function getStars(n) {
             return '<span class="text-[#ff4d4d]">' + '★'.repeat(n) + '</span><span class="text-[#222]">' + '★'.repeat(5-n) + '</span>';
         }
 
+        // GESTION ADMIN POUR SUPPRIMER LES AVIS
         function toggleAdmin() {
-            const pass = prompt("CODE ADMIN :");
-            if(pass === "1234") { document.body.classList.toggle('admin-mode'); }
+            const pass = prompt("ENTREZ LE CODE SECRET POUR GÉRER LES AVIS :");
+            if(pass === "1234") { 
+                document.body.classList.toggle('admin-mode');
+                alert("MODE GESTION ACTIVÉ.");
+            }
         }
 
         function deleteAvis(id) {
-            if(confirm("SUPPRIMER ?")) { avisData = avisData.filter(a => a.id !== id); save(); }
+            if(confirm("CONFIRMER LA SUPPRESSION ?")) { 
+                avisData = avisData.filter(a => a.id !== id); 
+                save(); 
+            }
         }
 
-        function renderAvis() {
+        function renderAvis(dataToDisplay) {
             const container = document.getElementById('avisList');
+            const noResults = document.getElementById('noResults');
+            
+            // Calcul de la note globale basé sur TOUS les avis stockés
             const total = avisData.length;
             const moyenne = total > 0 ? (avisData.reduce((acc, a) => acc + a.note, 0) / total).toFixed(1) : "0.0";
-
+            
             document.getElementById('moyenneNombre').innerText = moyenne;
             document.getElementById('moyenneEtoiles').innerHTML = getStars(Math.round(moyenne));
-            document.getElementById('totalAvisLabel').innerText = `BASÉ SUR ${total} AVIS VÉRIFIÉS`;
+            document.getElementById('totalAvisLabel').innerText = `BASÉ SUR ${total} AVIS RÉELS`;
 
-            container.innerHTML = avisData.map(a => `
+            if (dataToDisplay.length === 0) {
+                container.innerHTML = "";
+                noResults.classList.remove('hidden');
+                return;
+            }
+            noResults.classList.add('hidden');
+
+            container.innerHTML = dataToDisplay.map(a => `
                 <article class="review-card rounded-[2.5rem] p-10 flex flex-col">
                     <button class="admin-delete" onclick="deleteAvis(${a.id})">×</button>
                     <div class="flex justify-between items-start mb-6">
                         <div>
                             <span class="text-white font-extrabold text-lg block tracking-tight uppercase">${a.nom}</span>
-                            <span class="text-[#ff4d4d] font-black text-[9px] tracking-tighter uppercase">${a.date}</span>
+                            <span class="text-[#ff4d4d] font-black text-[9px] uppercase">${a.date}</span>
                         </div>
                         <div class="text-xl">${getStars(a.note)}</div>
                     </div>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-8 flex-grow uppercase font-medium">"${a.message}"</p>
-                    <div class="text-[9px] font-black text-gray-600 uppercase tracking-widest border-t border-white/5 pt-6">
+                    <p class="text-gray-400 text-sm leading-relaxed mb-8 flex-grow uppercase font-medium italic">"${a.message}"</p>
+                    <div class="text-[9px] font-black text-gray-500 uppercase tracking-widest border-t border-white/5 pt-6">
                         VENDEUR : <span class="text-white font-bold">${a.vendeur}</span>
                     </div>
                 </article>
@@ -173,13 +197,11 @@
         document.getElementById('formAvis').addEventListener('submit', (e) => {
             e.preventDefault();
             const noteSelected = document.querySelector('input[name="note"]:checked').value;
-            const vNom = document.getElementById('vendeurNom').value.toUpperCase();
-            const vPrenom = document.getElementById('vendeurPrenom').value.toUpperCase();
-
+            
             const n = {
                 id: Date.now(),
                 nom: document.getElementById('formNom').value.toUpperCase(),
-                vendeur: `${vPrenom} ${vNom}`,
+                vendeur: document.getElementById('vendeurComplet').value.toUpperCase(),
                 note: parseInt(noteSelected),
                 message: document.getElementById('formMessage').value.toUpperCase(),
                 date: new Date().toLocaleDateString('fr-FR', {day:'2-digit', month:'long', year:'numeric'}).toUpperCase()
@@ -191,7 +213,15 @@
             e.target.reset();
         });
 
-        renderAvis();
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const q = e.target.value.toUpperCase();
+            const filtered = avisData.filter(a => 
+                a.nom.includes(q) || a.message.includes(q) || a.vendeur.includes(q)
+            );
+            renderAvis(filtered);
+        });
+
+        renderAvis(avisData);
     </script>
 </body>
 </html>
