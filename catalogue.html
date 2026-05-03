@@ -146,8 +146,12 @@
       const search = document.getElementById('searchInput').value.toUpperCase();
       const sort = document.getElementById('sortSelect').value;
       const category = document.getElementById('categorySelect').value;
-      const minP = parseFloat(document.getElementById('minPrice').value) || 0;
-      const maxP = parseFloat(document.getElementById('maxPrice').value) || Infinity;
+      
+      // MODIF : Gestion prix indépendante (si vide = 0 ou Infinity)
+      const minInput = document.getElementById('minPrice').value;
+      const maxInput = document.getElementById('maxPrice').value;
+      const minP = minInput !== "" ? parseFloat(minInput) : 0;
+      const maxP = maxInput !== "" ? parseFloat(maxInput) : Infinity;
 
       let filtered = products.filter(p => {
         const matchesSearch = p.name.toUpperCase().includes(search);
@@ -171,7 +175,8 @@
 
       grid.innerHTML = filtered.map(p => `
           <article class="product-card rounded-[2.5rem] p-8 flex flex-col items-center text-center">
-              <div class="category-badge text-[8px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest mb-6">
+              <!-- MODIF : Badge catégorie agrandi -->
+              <div class="category-badge text-[11px] font-black px-6 py-2 rounded-full uppercase tracking-widest mb-6">
                 ${p.category}
               </div>
               <div class="relative w-full h-40 mb-8 flex items-center justify-center">
@@ -181,8 +186,9 @@
               <div class="h-px w-10 bg-[#ff4d4d] opacity-50 mb-6"></div>
               <div class="mt-auto">
                   <span class="text-gray-500 text-[10px] font-black uppercase tracking-[0.3em] block mb-1">Prix de vente</span>
+                  <!-- MODIF : $ de la même taille que le prix -->
                   <span class="text-3xl font-black text-white italic">
-                    ${p.price.toLocaleString()} <span class="text-[#ff4d4d] not-italic text-sm">$</span>
+                    ${p.price.toLocaleString()} <span class="text-[#ff4d4d] not-italic text-3xl">$</span>
                   </span>
               </div>
           </article>
