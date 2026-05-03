@@ -92,8 +92,13 @@
                   <input type="text" name="Numéro de Téléphone" placeholder="NUMÉRO DE TÉLÉPHONE" required class="w-full input-elite rounded-2xl p-5 text-xs font-bold uppercase tracking-widest">
               </div>
 
+              <!-- AJOUT : PSEUDO & ID DISCORD -->
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <!-- MODIFICATION : Type "date" au lieu de "text" -->
+                  <input type="text" name="PseudoDiscord" placeholder="PSEUDO DISCORD" required class="w-full input-elite rounded-2xl p-5 text-xs font-bold uppercase tracking-widest">
+                  <input type="text" name="IDDiscord" placeholder="ID DISCORD (18 CHIFFRES)" required class="w-full input-elite rounded-2xl p-5 text-xs font-bold uppercase tracking-widest">
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <input type="date" name="Date" required class="w-full input-elite rounded-2xl p-5 text-xs font-bold uppercase tracking-widest">
                   
                   <select name="Poste" required class="w-full input-elite rounded-2xl p-5 text-xs font-bold uppercase tracking-widest cursor-pointer">
@@ -103,9 +108,7 @@
                   </select>
               </div>
 
-              <!-- MODIFICATION : "Disponibilités" passe en textarea -->
               <textarea name="Vos Disponibilités" rows="3" placeholder="VOS DISPONIBILITÉS (JOURS ET HORAIRES)..." required class="w-full input-elite rounded-3xl p-6 text-xs font-bold uppercase tracking-widest resize-none"></textarea>
-
               <textarea name="Votre Présentation" rows="4" placeholder="VOTRE PRÉSENTATION PERSONNELLE..." required class="w-full input-elite rounded-3xl p-6 text-xs font-bold uppercase tracking-widest resize-none"></textarea>
               <textarea name="Vos Motivations" rows="4" placeholder="VOS MOTIVATIONS POUR NOUS REJOINDRE..." required class="w-full input-elite rounded-3xl p-6 text-xs font-bold uppercase tracking-widest resize-none"></textarea>
               <textarea name="Commentaire" rows="2" placeholder="COMMENTAIRE FACULTATIF" class="w-full input-elite rounded-3xl p-6 text-xs font-bold uppercase tracking-widest resize-none"></textarea>
@@ -121,11 +124,7 @@
   </main>
 
   <script>
-    // ==========================================
-    // RÉGLAGE : CHANGE PAR 'false' POUR FERMER
-    // ==========================================
     const recrutementOuvert = false; 
-    // ==========================================
 
     const statutContainer = document.getElementById('statutContainer');
     const contentArea = document.getElementById('contentArea');
@@ -173,6 +172,7 @@
                     description: `
 **Nom complet :** ${formData.get('Nom')}
 **Téléphone :** ${formData.get('Numéro de Téléphone')}
+**Discord :** ${formData.get('PseudoDiscord')} (${formData.get('IDDiscord')})
 **Naissance :** ${formData.get('Date')}
 **Dispos :** ${formData.get('Vos Disponibilités')}
 **Poste :** ${formData.get('Poste')}
