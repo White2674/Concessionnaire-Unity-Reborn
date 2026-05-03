@@ -1,157 +1,243 @@
 <!DOCTYPE html>
-<html lang="FR">
+<html lang="fr" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="VIEWPORT" content="width=device-width, initial-scale=1.0">
-    <title>L'AUTO ELITE | ACCUEIL</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0d0d0d; color: #ffffff; overflow-x: hidden; }
-        
-        .hero-video {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100vh;
-            object-fit: cover; opacity: 0.4; z-index: -1;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>L'AUTO ELITE | ACCUEIL</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Montserrat+Alternates:wght@700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0d0d0d; color: white; }
+    
+    /* Underline animé Elite */
+    nav a { position: relative; transition: color 0.3s ease; }
+    nav a::after {
+      content: ''; position: absolute; width: 0%; height: 2px;
+      left: 0; bottom: -4px; background-color: #ff4d4d;
+      transition: width 0.3s ease; border-radius: 2px;
+    }
+    nav a:hover::after, nav a.active::after { width: 100%; }
+    nav a:hover { color: #ff4d4d; }
 
-        .hero-overlay {
-            background: linear-gradient(to bottom, rgba(13,13,13,0.5) 0%, #0d0d0d 100%);
-            position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1;
-        }
+    /* Nav au scroll */
+    .nav-shadow {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(15px);
+      background-color: rgba(13, 13, 13, 0.9);
+    }
 
-        .force-caps { text-transform: uppercase; }
-        
-        .btn-elite {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 30px rgba(255, 77, 77, 0.2);
-        }
-        .btn-elite:hover { transform: scale(1.05); box-shadow: 0 15px 40px rgba(255, 77, 77, 0.4); }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-    </style>
+    /* Animation Partenaires */
+    @keyframes partner-slide {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .partner-scroll { animation: partner-slide 20s linear infinite; width: max-content; }
+  </style>
 </head>
-<body>
+<body class="bg-[#0d0d0d]">
 
-    <!-- NAVIGATION -->
-    <nav class="flex justify-between items-center px-12 py-6 bg-black/80 backdrop-blur-md fixed w-full z-50 border-b border-white/5">
-        <div class="text-xl font-extrabold uppercase tracking-tighter">
-            L'AUTO <span class="text-[#ff4d4d]">ELITE</span>
-        </div>
-        <div class="hidden md:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400">
-            <a href="index.html" class="text-white border-b-2 border-[#ff4d4d] pb-1">ACCUEIL</a>
-            <a href="catalogue.html" class="hover:text-white transition">OCCASIONS</a>
-            <a href="avis.html" class="hover:text-white transition">AVIS</a>
-            <a href="equipe.html" class="hover:text-white transition">ÉQUIPE</a>
-        </div>
-        <button class="bg-[#ff4d4d] text-white px-8 py-2.5 rounded-full text-[10px] font-black uppercase btn-elite">CONNEXION</button>
+<header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+  <nav class="max-w-7xl mx-auto flex justify-between items-center py-5 px-6 md:px-12">
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center gap-3">
+      <div class="text-xl font-extrabold uppercase tracking-tighter">
+        L'AUTO <span class="text-[#ff4d4d]">ELITE</span>
+      </div>
+    </a>
+
+    <!-- Menu Desktop -->
+    <nav class="hidden md:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-gray-400">
+      <ul class="flex items-center gap-8">
+        <li><a href="index.html" class="text-white active">Accueil</a></li>
+        <li><a href="catalogue.html">Catalogue</a></li>
+        <li><a href="avis.html">Avis Clients</a></li>
+        <li><a href="equipe.html">Équipe</a></li>
+        <li><a href="actualites.html">Actualités</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="candidature.html"
+         class="bg-[#ff4d4d] hover:bg-white hover:text-black text-white py-3 px-6 rounded-full transition-all duration-300 shadow-lg shadow-red-900/20">
+        📝 Candidature
+      </a>
     </nav>
 
-    <!-- HERO SECTION -->
-    <section class="h-screen flex flex-col justify-center items-center text-center px-6 relative">
-        <div class="hero-overlay"></div>
-        <!-- Remplace par une vidéo de voiture stylée si tu en as une -->
-        <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=2070&auto=format&fit=crop" class="hero-video" alt="Car Background">
-        
-        <h2 class="text-[#ff4d4d] text-[10px] font-black uppercase tracking-[0.5em] mb-6">BIENVENUE CHEZ L'ÉLITE AUTOMOBILE</h2>
-        <h1 class="text-5xl md:text-9xl font-black uppercase tracking-tighter leading-none mb-10">
-            DRIVE THE <br><span class="text-transparent" style="-webkit-text-stroke: 1px white;">EXCEPTION</span>
-        </h1>
-        
-        <div class="flex flex-col md:flex-row gap-6">
-            <a href="catalogue.html" class="bg-[#ff4d4d] text-white px-12 py-5 rounded-2xl text-[12px] font-black uppercase btn-elite">Explorer le stock</a>
-            <a href="avis.html" class="bg-white/10 hover:bg-white/20 text-white px-12 py-5 rounded-2xl text-[12px] font-black uppercase backdrop-blur-md transition">Lire les avis</a>
-        </div>
-    </section>
+    <!-- Burger mobile -->
+    <button id="burger" class="md:hidden text-[#ff4d4d]">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+    </button>
+  </nav>
 
-    <!-- SECTION CHIFFRES CLÉS -->
-    <section class="py-32 px-6 max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div class="text-center">
-                <span id="homeMoyenne" class="text-6xl font-black text-[#ff4d4d] block mb-2">4.9</span>
-                <span class="text-xs font-black uppercase tracking-widest text-gray-500">Note moyenne clients</span>
-            </div>
-            <div class="text-center border-x border-white/5">
-                <span class="text-6xl font-black text-white block mb-2">150+</span>
-                <span class="text-xs font-black uppercase tracking-widest text-gray-500">Véhicules livrés / an</span>
-            </div>
-            <div class="text-center">
-                <span class="text-6xl font-black text-white block mb-2">24H</span>
-                <span class="text-xs font-black uppercase tracking-widest text-gray-500">Garantie & Support</span>
-            </div>
-        </div>
-    </section>
+  <!-- Menu Mobile -->
+  <div id="mobileMenu" class="hidden md:hidden mx-4 mt-2 p-6 rounded-3xl bg-black/90 border border-white/5 text-white">
+    <ul class="flex flex-col gap-4 text-sm font-bold uppercase text-center">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="catalogue.html">Catalogue</a></li>
+      <li><a href="avis.html">Avis</a></li>
+      <li><a href="equipe.html">Équipe</a></li>
+      <li><a href="actualites.html">Actualités</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="candidature.html" class="text-[#ff4d4d]">Candidature</a></li>
+    </ul>
+  </div>
+</header>
 
-    <!-- SECTION VITRINE RAPIDE -->
-    <section class="py-24 bg-[#0a0a0a]">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex justify-between items-end mb-16">
-                <div>
-                    <h3 class="text-[#ff4d4d] text-[10px] font-black uppercase tracking-widest mb-4">ARRIVAGES RÉCENTS</h3>
-                    <h2 class="text-4xl font-black uppercase tracking-tighter">NOS DERNIÈRES <span class="italic text-transparent" style="-webkit-text-stroke: 1px white;">PÉPITES</span></h2>
-                </div>
-                <a href="catalogue.html" class="text-[10px] font-black uppercase tracking-widest border-b-2 border-[#ff4d4d] pb-2 hover:text-[#ff4d4d] transition">Voir tout le stock</a>
-            </div>
+<!-- BANNIÈRE HERO -->
+<header class="relative h-[60vh] flex flex-col justify-center items-center px-6 text-center overflow-hidden rounded-[3rem] mx-4 mt-24 shadow-2xl">
+  <div class="absolute inset-0 bg-[url('https://i.goopics.net/vkekhc.png')] bg-cover bg-center"></div>
+  <div class="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Card 1 -->
-                <div class="group relative overflow-hidden rounded-[3rem] bg-[#151515] border border-white/5">
-                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop" class="w-full h-[400px] object-cover opacity-60 group-hover:scale-110 transition duration-700" alt="Porsche">
-                    <div class="absolute bottom-0 left-0 p-10 w-full bg-gradient-to-t from-black to-transparent">
-                        <span class="bg-[#ff4d4d] text-white px-4 py-1 rounded-full text-[9px] font-black uppercase mb-4 inline-block">Nouveau</span>
-                        <h4 class="text-2xl font-black uppercase tracking-tighter">PORSCHE 911 GT3 RS</h4>
-                        <p class="text-gray-400 text-xs font-bold uppercase tracking-widest">2024 • 1 200 KM • 245 000€</p>
-                    </div>
-                </div>
-                <!-- Card 2 -->
-                <div class="group relative overflow-hidden rounded-[3rem] bg-[#151515] border border-white/5">
-                    <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=2070&auto=format&fit=crop" class="w-full h-[400px] object-cover opacity-60 group-hover:scale-110 transition duration-700" alt="Ferrari">
-                    <div class="absolute bottom-0 left-0 p-10 w-full bg-gradient-to-t from-black to-transparent">
-                        <span class="bg-white/10 text-white px-4 py-1 rounded-full text-[9px] font-black uppercase mb-4 inline-block">Vendu</span>
-                        <h4 class="text-2xl font-black uppercase tracking-tighter">FERRARI F8 TRIBUTO</h4>
-                        <p class="text-gray-400 text-xs font-bold uppercase tracking-widest">2023 • 4 500 KM • SUR DEMANDE</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <div class="relative z-10 max-w-4xl">
+    <h1 class="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-6" style="font-family: 'Montserrat Alternates', sans-serif;">
+      L'EXPÉRIENCE <span class="text-[#ff4d4d]">AUTOMOBILE</span> <br>DÉFINITIVE
+    </h1>
+    <p class="text-gray-300 text-sm md:text-lg tracking-widest uppercase font-semibold">
+      La concession de référence à Los Santos
+    </p>
+    <a href="catalogue.html" class="mt-10 inline-block bg-white text-black font-black py-4 px-10 rounded-2xl hover:bg-[#ff4d4d] hover:text-white transition duration-300 uppercase text-xs tracking-widest">
+      Voir le Catalogue
+    </a>
+  </div>
+</header>
 
-    <!-- FOOTER SIMPLE -->
-    <footer class="py-20 border-t border-white/5 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
-            <div class="text-xl font-extrabold uppercase tracking-tighter">
-                L'AUTO <span class="text-[#ff4d4d]">ELITE</span>
-            </div>
-            <p class="text-gray-600 text-[10px] font-bold uppercase tracking-widest text-center">
-                © 2026 L'AUTO ELITE — TOUS DROITS RÉSERVÉS. <br>
-                CONCEPTION HAUTE PERFORMANCE.
-            </p>
-            <div class="flex gap-6">
-                <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-[#ff4d4d] transition cursor-pointer">
-                    <span class="text-[10px] font-black">IG</span>
-                </div>
-                <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-[#ff4d4d] transition cursor-pointer">
-                    <span class="text-[10px] font-black">FB</span>
-                </div>
-            </div>
-        </div>
-    </footer>
+<!-- QUI SOMMES-NOUS -->
+<section class="max-w-6xl mx-auto px-6 py-24">
+  <h2 class="text-4xl md:text-5xl font-black text-center mb-16 uppercase tracking-tighter">
+    Qui <span class="text-[#ff4d4d] italic">sommes-nous</span> ?
+  </h2>
+  <div class="bg-white/5 border border-white/5 backdrop-blur-xl rounded-[3rem] p-10 md:p-16 text-center transform hover:scale-[1.01] transition duration-500">
+    <p class="text-gray-400 text-lg md:text-2xl leading-relaxed font-medium">
+      <span class="text-white font-bold uppercase">L'Auto Elite</span>, implantée au cœur de Los Santos, est bien plus qu'une concession. 
+      Nous sommes les gardiens de l'exceptionnel. Notre mission ? 
+      <span class="text-[#ff4d4d] italic">Redéfinir le prestige automobile en alliant performance brute et service sur-mesure.</span>
+      Chaque véhicule qui sort de nos hangars est une promesse de liberté et de puissance.
+    </p>
+  </div>
+</section>
 
-    <script>
-        // RÉCUPÉRATION DE LA NOTE MOYENNE RÉELLE DEPUIS LA PAGE AVIS
-        function updateHomeStats() {
-            const avisData = JSON.parse(localStorage.getItem('elite_avis_final_v5')) || [];
-            if (avisData.length > 0) {
-                const moyenne = (avisData.reduce((acc, a) => acc + a.note, 0) / avisData.length).toFixed(1);
-                document.getElementById('homeMoyenne').innerText = moyenne;
-            }
-        }
-        
-        // Mise à jour au chargement
-        updateHomeStats();
-    </script>
+<!-- POURQUOI NOUS CHOISIR -->
+<section class="max-w-7xl mx-auto px-6 py-24 bg-[#0a0a0a] rounded-[4rem]">
+  <h2 class="text-4xl md:text-5xl font-black text-center mb-16 uppercase tracking-tighter">
+    L'EXCELLENCE <span class="text-[#ff4d4d]">ELITE</span>
+  </h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="bg-[#111] p-8 rounded-[2.5rem] border border-white/5 hover:border-[#ff4d4d]/50 transition group">
+      <h3 class="text-[#ff4d4d] font-black text-xl mb-4 group-hover:scale-110 transition">01. FIABILITÉ</h3>
+      <p class="text-gray-500 text-sm leading-relaxed uppercase font-bold">Une équipe d'experts à votre écoute pour une expérience d'achat sereine.</p>
+    </div>
+    <div class="bg-[#111] p-8 rounded-[2.5rem] border border-white/5 hover:border-[#ff4d4d]/50 transition group">
+      <h3 class="text-[#ff4d4d] font-black text-xl mb-4 group-hover:scale-110 transition">02. SERVICE</h3>
+      <p class="text-gray-500 text-sm leading-relaxed uppercase font-bold">Accompagnement VIP de la première visite à la remise des clés.</p>
+    </div>
+    <div class="bg-[#111] p-8 rounded-[2.5rem] border border-white/5 hover:border-[#ff4d4d]/50 transition group">
+      <h3 class="text-[#ff4d4d] font-black text-xl mb-4 group-hover:scale-110 transition">03. CATALOGUE</h3>
+      <p class="text-gray-500 text-sm leading-relaxed uppercase font-bold">Une sélection rigoureuse des modèles les plus rares et performants de l'État.</p>
+    </div>
+    <div class="bg-[#111] p-8 rounded-[2.5rem] border border-white/5 hover:border-[#ff4d4d]/50 transition group">
+      <h3 class="text-[#ff4d4d] font-black text-xl mb-4 group-hover:scale-110 transition">04. PRIORITÉ</h3>
+      <p class="text-gray-500 text-sm leading-relaxed uppercase font-bold">Votre satisfaction est le moteur qui fait avancer notre concession.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ ACCORDÉON -->
+<section class="max-w-4xl mx-auto px-6 py-24">
+  <h2 class="text-4xl md:text-5xl font-black text-center mb-16 uppercase tracking-tighter">FAQ <span class="text-[#ff4d4d]">ELITE</span></h2>
+  <div class="space-y-4">
+    <!-- Item 1 -->
+    <div class="bg-white/5 border border-white/5 rounded-3xl overflow-hidden">
+      <button class="faq-question flex justify-between items-center w-full p-6 text-left font-bold uppercase text-xs tracking-widest hover:bg-white/5 transition">
+        <span>Quelle est l’atmosphère chez L'Auto Elite ?</span>
+        <svg class="faq-icon w-5 h-5 text-[#ff4d4d] transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
+      </button>
+      <div class="faq-answer max-h-0 overflow-hidden px-6 text-gray-400 text-sm transition-all duration-500">
+        <p class="pb-6">L’ambiance est à la fois professionnelle et passionnée. Nous traitons chaque collaborateur et chaque client comme un membre de la famille Elite.</p>
+      </div>
+    </div>
+    <!-- Item 2 -->
+    <div class="bg-white/5 border border-white/5 rounded-3xl overflow-hidden">
+      <button class="faq-question flex justify-between items-center w-full p-6 text-left font-bold uppercase text-xs tracking-widest hover:bg-white/5 transition">
+        <span>Comment acheter un véhicule ?</span>
+        <svg class="faq-icon w-5 h-5 text-[#ff4d4d] transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
+      </button>
+      <div class="faq-answer max-h-0 overflow-hidden px-6 text-gray-400 text-sm transition-all duration-500">
+        <p class="pb-6">Prenez rendez-vous via la page contact ou venez nous voir directement au showroom. Un conseiller vous accompagnera de A à Z.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHIFFRES CLÉS -->
+<section class="max-w-7xl mx-auto px-6 py-16">
+  <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="bg-[#ff4d4d] p-10 rounded-[3rem] text-center text-white">
+      <p class="text-5xl font-black mb-2">99%</p>
+      <p class="text-[10px] font-black uppercase tracking-widest opacity-80">Satisfaction</p>
+    </div>
+    <div class="bg-white/5 p-10 rounded-[3rem] text-center border border-white/5">
+      <p class="text-5xl font-black mb-2">+20</p>
+      <p class="text-[10px] font-black uppercase tracking-widest text-gray-500">Experts</p>
+    </div>
+    <div class="bg-white/5 p-10 rounded-[3rem] text-center border border-white/5">
+      <p class="text-5xl font-black mb-2">7j/7</p>
+      <p class="text-[10px] font-black uppercase tracking-widest text-gray-500">Ouvert</p>
+    </div>
+    <div class="bg-white/5 p-10 rounded-[3rem] text-center border border-white/5">
+      <p class="text-5xl font-black mb-2">+10</p>
+      <p class="text-[10px] font-black uppercase tracking-widest text-gray-500">Partenaires</p>
+    </div>
+  </div>
+</section>
+
+<!-- PARTENAIRES -->
+<section class="py-24 overflow-hidden">
+  <h2 class="text-center text-[10px] font-black tracking-[0.5em] text-gray-600 uppercase mb-12 italic">Ils nous font confiance</h2>
+  <div class="relative flex items-center">
+    <div class="partner-scroll flex items-center gap-20">
+      <img src="https://i.goopics.net/ja2b6l.png" alt="Partner" class="h-12 opacity-30 hover:opacity-100 transition grayscale hover:grayscale-0" />
+      <img src="https://i.goopics.net/hqn2br.png" alt="Partner" class="h-12 opacity-30 hover:opacity-100 transition grayscale hover:grayscale-0" />
+      <img src="https://i.goopics.net/jpcnos.png" alt="Partner" class="h-12 opacity-30 hover:opacity-100 transition grayscale hover:grayscale-0" />
+      <img src="https://i.goopics.net/wu8roj.png" alt="Partner" class="h-12 opacity-30 hover:opacity-100 transition grayscale hover:grayscale-0" />
+      <!-- Duplicate for loop -->
+      <img src="https://i.goopics.net/ja2b6l.png" alt="Partner" class="h-12 opacity-30 hover:opacity-100 transition grayscale hover:grayscale-0" />
+      <img src="https://i.goopics.net/hqn2br.png" alt="Partner" class="h-12 opacity-30 hover:opacity-100 transition grayscale hover:grayscale-0" />
+    </div>
+  </div>
+</section>
+
+<footer class="py-12 border-t border-white/5 text-center">
+  <p class="text-gray-600 text-[10px] font-black uppercase tracking-widest">
+    &copy; 2026 L'AUTO ELITE — PERFORMANCE & PRESTIGE
+  </p>
+</footer>
+
+<script>
+  // Toggle Mobile Menu
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+  // Header Shadow on Scroll
+  window.addEventListener('scroll', () => {
+    const header = document.getElementById('header');
+    header.classList.toggle('nav-shadow', window.scrollY > 20);
+  });
+
+  // FAQ Accordion
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const answer = button.nextElementSibling;
+      const icon = button.querySelector('.faq-icon');
+      const isExpanded = answer.style.maxHeight;
+
+      document.querySelectorAll('.faq-answer').forEach(a => a.style.maxHeight = null);
+      document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('rotate-180'));
+
+      if (!isExpanded) {
+        answer.style.maxHeight = answer.scrollHeight + "px";
+        icon.classList.add('rotate-180');
+      }
+    });
+  });
+</script>
 </body>
 </html>
