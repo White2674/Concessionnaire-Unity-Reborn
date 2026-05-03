@@ -21,12 +21,12 @@
     .section-title { font-size: 2.5rem; line-height: 1.2; font-weight: 900; text-transform: uppercase; letter-spacing: -0.05em; text-align: center; margin-bottom: 4rem; }
     @media (min-width: 768px) { .section-title { font-size: 3.5rem; } }
 
-    /* ANIMATION PARTENAIRES COLORÉS */
+    /* ANIMATION PARTENAIRES COLORÉS - CENTRÉS */
     @keyframes partner-slide {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
-    .partner-scroll { animation: partner-slide 20s linear infinite; width: max-content; }
+    .partner-scroll { animation: partner-slide 25s linear infinite; width: max-content; display: flex; align-items: center; }
   </style>
 </head>
 <body>
@@ -60,7 +60,7 @@
   </header>
 
   <!-- HERO SECTION -->
-  <section class="relative h-[75vh] flex flex-col justify-center items-center text-center px-6 pt-20">
+  <section class="relative h-[80vh] flex flex-col justify-center items-center text-center px-6 pt-20">
     <div class="absolute inset-0 z-0 mx-4 mt-4 overflow-hidden rounded-[3rem]">
       <img src="https://i.goopics.net/vkekhc.png" class="w-full h-full object-cover opacity-40" alt="Hero">
       <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-black/20 to-transparent"></div>
@@ -77,11 +77,11 @@
     </div>
   </section>
 
-  <!-- QUI SOMMES-NOUS (CENTRÉ) -->
-  <section class="max-w-5xl mx-auto px-6 py-32 text-center">
+  <!-- QUI SOMMES-NOUS (ÉLARGI ET CENTRÉ) -->
+  <section class="max-w-7xl mx-auto px-6 py-32 text-center">
     <h2 class="section-title">Qui <span class="text-[#ff4d4d]">sommes-nous</span> ?</h2>
-    <div class="bg-[#151515] border border-white/5 rounded-[3rem] p-10 md:p-16">
-      <p class="text-gray-300 text-lg md:text-2xl leading-relaxed font-semibold uppercase tracking-tight italic">
+    <div class="bg-[#151515] border border-white/5 rounded-[3rem] p-10 md:p-20 shadow-2xl">
+      <p class="text-gray-300 text-xl md:text-3xl leading-relaxed font-semibold uppercase tracking-tight italic">
         Le <span class="text-white font-black">Concessionnaire Automobile</span>, implanté à Los Santos, est un acteur incontournable. 
         Fort d’une expertise reconnue et d’un savoir-faire unique, nous allions qualité, fiabilité et passion. 
         Notre mission ? <span class="text-[#ff4d4d]">Faire de notre concession la référence absolue de l'État.</span>
@@ -95,84 +95,90 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       <div class="elite-card rounded-[2.5rem] p-10 text-center">
         <h3 class="text-xl font-black text-[#ff4d4d] mb-4">01. FIABILITÉ</h3>
-        <p class="text-gray-500 text-[10px] font-bold uppercase leading-relaxed">Optez pour une équipe disponible et à l’écoute dans une ambiance conviviale.</p>
+        <p class="text-gray-500 text-[11px] font-bold uppercase leading-relaxed">Optez pour une équipe disponible et à l’écoute dans une ambiance conviviale.</p>
       </div>
       <div class="elite-card rounded-[2.5rem] p-10 text-center">
         <h3 class="text-xl font-black text-[#ff4d4d] mb-4">02. SERVICE</h3>
-        <p class="text-gray-500 text-[10px] font-bold uppercase leading-relaxed">Venez sur place pour découvrir nos véhicules et finaliser votre achat.</p>
+        <p class="text-gray-500 text-[11px] font-bold uppercase leading-relaxed">Venez sur place pour découvrir nos véhicules et finaliser votre achat.</p>
       </div>
       <div class="elite-card rounded-[2.5rem] p-10 text-center">
         <h3 class="text-xl font-black text-[#ff4d4d] mb-4">03. CATALOGUE</h3>
-        <p class="text-gray-500 text-[10px] font-bold uppercase leading-relaxed">Chaque véhicule est sélectionné avec soin pour garantir performance.</p>
+        <p class="text-gray-500 text-[11px] font-bold uppercase leading-relaxed">Chaque véhicule est sélectionné avec soin pour garantir performance.</p>
       </div>
-      <div class="elite-card rounded-[2.5rem] p-10 text-center">
+      <div class="elite-card rounded-[2.5rem] p-10 text-center border-[#ff4d4d]/30">
         <h3 class="text-xl font-black text-[#ff4d4d] mb-4">04. PRIORITÉ</h3>
-        <p class="text-gray-500 text-[10px] font-bold uppercase leading-relaxed">Nous mettons tout en œuvre pour offrir un service humain et fiable.</p>
+        <p class="text-gray-500 text-[11px] font-bold uppercase leading-relaxed">Nous mettons tout en œuvre pour offrir un service humain et fiable.</p>
       </div>
     </div>
   </section>
 
-  <!-- FAQ (CENTRÉ) -->
-  <section class="max-w-4xl mx-auto px-6 py-32 text-center">
+  <!-- FAQ (ÉLARGIE ET TEXTE AGRANDI) -->
+  <section class="max-w-6xl mx-auto px-6 py-32 text-center">
     <h2 class="section-title">Questions <span class="text-[#ff4d4d]">(FAQ)</span></h2>
-    <div class="space-y-4 text-left">
-      <div class="bg-[#151515] rounded-3xl border border-white/5 overflow-hidden">
-        <button class="faq-btn w-full p-8 flex justify-between items-center text-left">
-          <span class="text-[11px] font-black uppercase tracking-widest">Atmosphère de la concession ?</span>
-          <svg class="faq-icon w-5 h-5 text-[#ff4d4d] transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
+    <div class="space-y-6 text-left">
+      <div class="bg-[#151515] rounded-[2.5rem] border border-white/5 overflow-hidden">
+        <button class="faq-btn w-full p-10 flex justify-between items-center text-left">
+          <span class="text-sm md:text-lg font-black uppercase tracking-widest text-white">Quelle est l'atmosphère de la concession ?</span>
+          <svg class="faq-icon w-6 h-6 text-[#ff4d4d] transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
         </button>
         <div class="faq-content max-h-0 overflow-hidden transition-all duration-500">
-          <p class="p-8 text-gray-500 text-[10px] font-bold uppercase border-t border-white/5">Chez nous, l’ambiance est conviviale et dynamique. Nous sommes proches de nos employés et de nos clients.</p>
+          <p class="p-10 text-gray-400 text-xs md:text-sm font-bold uppercase border-t border-white/5 leading-loose">
+            Chez nous, l’ambiance est conviviale et dynamique. Nous sommes extrêmement proches de nos employés comme de nos clients pour garantir une expérience fluide et humaine.
+          </p>
         </div>
       </div>
-      <div class="bg-[#151515] rounded-3xl border border-white/5 overflow-hidden">
-        <button class="faq-btn w-full p-8 flex justify-between items-center text-left">
-          <span class="text-[11px] font-black uppercase tracking-widest">Comment acheter ?</span>
-          <svg class="faq-icon w-5 h-5 text-[#ff4d4d] transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
+      <div class="bg-[#151515] rounded-[2.5rem] border border-white/5 overflow-hidden">
+        <button class="faq-btn w-full p-10 flex justify-between items-center text-left">
+          <span class="text-sm md:text-lg font-black uppercase tracking-widest text-white">Comment se passe l'achat d'un véhicule ?</span>
+          <svg class="faq-icon w-6 h-6 text-[#ff4d4d] transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
         </button>
         <div class="faq-content max-h-0 overflow-hidden transition-all duration-500">
-          <p class="p-8 text-gray-500 text-[10px] font-bold uppercase border-t border-white/5">Directement au showroom auprès de nos vendeurs qui vous accompagnent dans toutes les étapes.</p>
+          <p class="p-10 text-gray-400 text-xs md:text-sm font-bold uppercase border-t border-white/5 leading-loose">
+            L'achat se fait directement au showroom. Nos vendeurs dédiés vous accompagnent dans toutes les étapes : essai, financement et remise des clés, pour que votre projet se réalise sans stress.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CHIFFRES CLÉS (CENTRÉ) -->
+  <!-- CHIFFRES CLÉS -->
   <section class="max-w-7xl mx-auto px-6 py-20 text-center">
     <h2 class="section-title">Nos <span class="text-[#ff4d4d]">chiffres clés</span></h2>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <div class="bg-[#ff4d4d] p-10 rounded-[2.5rem] text-center text-white">
+      <div class="bg-[#ff4d4d] p-12 rounded-[2.5rem] text-center text-white">
         <p class="text-5xl font-black mb-1">99%</p>
         <p class="text-[9px] font-black uppercase tracking-widest opacity-80">Satisfaits</p>
       </div>
-      <div class="bg-white/5 p-10 rounded-[2.5rem] border border-white/5 text-center">
+      <div class="bg-white/5 p-12 rounded-[2.5rem] border border-white/5 text-center">
         <p class="text-5xl font-black mb-1">+20</p>
-        <p class="text-[9px] font-black uppercase tracking-widest text-gray-500">Employés</p>
+        <p class="text-[9px] font-black uppercase tracking-widest text-gray-600">Employés</p>
       </div>
-      <div class="bg-white/5 p-10 rounded-[2.5rem] border border-white/5 text-center">
+      <div class="bg-white/5 p-12 rounded-[2.5rem] border border-white/5 text-center">
         <p class="text-5xl font-black mb-1">7J/7</p>
-        <p class="text-[9px] font-black uppercase tracking-widest text-gray-500">Ouvert</p>
+        <p class="text-[9px] font-black uppercase tracking-widest text-gray-600">Ouvert</p>
       </div>
-      <div class="bg-white/5 p-10 rounded-[2.5rem] border border-white/5 text-center">
+      <div class="bg-white/5 p-12 rounded-[2.5rem] border border-white/5 text-center">
         <p class="text-5xl font-black mb-1">+10</p>
-        <p class="text-[9px] font-black uppercase tracking-widest text-gray-500">Partenaires</p>
+        <p class="text-[9px] font-black uppercase tracking-widest text-gray-600">Partenaires</p>
       </div>
     </div>
   </section>
 
-  <!-- PARTENAIRES (LOGOS COLORÉS) -->
-  <section class="max-w-7xl mx-auto px-6 py-32">
-    <h2 class="section-title text-left">Nos <span class="text-[#ff4d4d]">Partenaires</span></h2>
-    <div class="overflow-hidden">
-      <div class="partner-scroll flex items-center gap-24 py-4">
-        <!-- Suppression de brightness-0 pour garder les couleurs d'origine -->
-        <img src="https://i.goopics.net/ja2b6l.png" class="h-16 opacity-80 hover:opacity-100 transition duration-500" />
-        <img src="https://i.goopics.net/hqn2br.png" class="h-16 opacity-80 hover:opacity-100 transition duration-500" />
-        <img src="https://i.goopics.net/jpcnos.png" class="h-16 opacity-80 hover:opacity-100 transition duration-500" />
-        <img src="https://i.goopics.net/wu8roj.png" class="h-16 opacity-80 hover:opacity-100 transition duration-500" />
-        <!-- Boucle pour fluidité -->
-        <img src="https://i.goopics.net/ja2b6l.png" class="h-16 opacity-80 hover:opacity-100 transition duration-500" />
-        <img src="https://i.goopics.net/hqn2br.png" class="h-16 opacity-80 hover:opacity-100 transition duration-500" />
+  <!-- PARTENAIRES (CENTRÉS ET COLORÉS) -->
+  <section class="max-w-7xl mx-auto px-6 py-32 text-center">
+    <h2 class="section-title">Nos <span class="text-[#ff4d4d]">Partenaires</span></h2>
+    <div class="relative overflow-hidden w-full flex justify-center">
+      <!-- Conteneur flex justify-center pour assurer le centrage visuel -->
+      <div class="flex justify-center w-full">
+        <div class="partner-scroll gap-24 py-4">
+          <img src="https://i.goopics.net/ja2b6l.png" class="h-20 opacity-90 hover:opacity-100 transition duration-500" />
+          <img src="https://i.goopics.net/hqn2br.png" class="h-20 opacity-90 hover:opacity-100 transition duration-500" />
+          <img src="https://i.goopics.net/jpcnos.png" class="h-20 opacity-90 hover:opacity-100 transition duration-500" />
+          <img src="https://i.goopics.net/wu8roj.png" class="h-20 opacity-90 hover:opacity-100 transition duration-500" />
+          <!-- Boucle -->
+          <img src="https://i.goopics.net/ja2b6l.png" class="h-20 opacity-90 hover:opacity-100 transition duration-500" />
+          <img src="https://i.goopics.net/hqn2br.png" class="h-20 opacity-90 hover:opacity-100 transition duration-500" />
+        </div>
       </div>
     </div>
   </section>
