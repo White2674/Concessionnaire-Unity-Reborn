@@ -9,26 +9,25 @@
   <style>
     body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0d0d0d; color: #ffffff; overflow-x: hidden; }
     
-    /* STYLE SIGNATURE AVIS */
-    .force-caps { text-transform: uppercase; }
+    /* STYLE SIGNATURE ELITE */
     .elite-card { background: #1a1a1a; border: 1px solid #252525; transition: all 0.4s ease; }
-    .elite-card:hover { border-color: #ff4d4d; transform: translateY(-8px); box-shadow: 0 20px 40px rgba(255, 77, 77, 0.05); }
+    .elite-card:hover { border-color: #ff4d4d; transform: translateY(-8px); }
     
-    /* NAV FUSIONNÉE */
-    .nav-active { color: #ff4d4d !important; border-bottom: 2px solid #ff4d4d; }
+    /* NAV ET EFFETS */
     .nav-shadow { background: rgba(13, 13, 13, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .text-outline { -webkit-text-stroke: 1px white; color: transparent; }
 
     /* ANIMATION PARTENAIRES */
     @keyframes partner-slide {
       0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      100% { transform: translateX(-30%); }
     }
-    .partner-scroll { animation: partner-slide 25s linear infinite; width: max-content; }
+    .partner-scroll { animation: partner-slide 20s linear infinite; width: max-content; }
   </style>
 </head>
 <body>
 
-  <!-- HEADER COMPLET (FONCTIONNEL ET ÉPURÉ) -->
+  <!-- HEADER -->
   <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
     <nav class="max-w-7xl mx-auto flex justify-between items-center py-6 px-6 md:px-12">
       <a href="index.html" class="flex items-center gap-3">
@@ -37,10 +36,9 @@
         </div>
       </a>
 
-      <!-- Menu Desktop Complet -->
       <nav class="hidden md:flex items-center gap-8 text-[10px] font-black uppercase tracking-[0.2em] text-gray-500">
         <ul class="flex items-center gap-8">
-          <li><a href="index.html" class="nav-active pb-1 text-white">Accueil</a></li>
+          <li><a href="index.html" class="text-white border-b-2 border-[#ff4d4d] pb-1">Accueil</a></li>
           <li><a href="catalogue.html" class="hover:text-white transition">Catalogue</a></li>
           <li><a href="avis.html" class="hover:text-white transition">Avis Clients</a></li>
           <li><a href="equipe.html" class="hover:text-white transition">L'Équipe</a></li>
@@ -57,29 +55,29 @@
     </nav>
 
     <!-- Menu Mobile -->
-    <div id="mobileMenu" class="hidden md:hidden mx-4 mt-2 p-6 rounded-3xl bg-black/95 border border-white/5 text-white shadow-2xl">
+    <div id="mobileMenu" class="hidden md:hidden mx-4 mt-2 p-6 rounded-3xl bg-black/95 border border-white/5 text-white">
       <ul class="flex flex-col gap-5 text-[11px] font-black uppercase tracking-widest text-center">
         <li><a href="index.html">Accueil</a></li>
         <li><a href="catalogue.html">Catalogue</a></li>
         <li><a href="avis.html">Avis</a></li>
         <li><a href="equipe.html">Équipe</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="candidature.html" class="text-[#ff4d4d]">Poster Candidature</a></li>
+        <li><a href="candidature.html" class="text-[#ff4d4d]">Candidature</a></li>
       </ul>
     </div>
   </header>
 
-  <!-- BANNIÈRE HERO (STYLE AVIS IMPACTANT) -->
+  <!-- HERO SECTION -->
   <section class="relative h-[70vh] flex flex-col justify-center items-center text-center px-6 mt-4">
     <div class="absolute inset-0 z-0 mx-4 mt-4 overflow-hidden rounded-[3rem]">
-      <img src="https://i.goopics.net/vkekhc.png" class="w-full h-full object-cover opacity-50" alt="Hero">
+      <img src="https://i.goopics.net/vkekhc.png" class="w-full h-full object-cover opacity-40" alt="Hero">
       <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-black/20 to-transparent"></div>
     </div>
     
-    <div class="relative z-10 max-w-5xl">
+    <div class="relative z-10">
       <h2 class="text-[#ff4d4d] text-[10px] font-black uppercase tracking-[0.6em] mb-6">PRESTIGE AUTOMOBILE LOS SANTOS</h2>
       <h1 class="text-5xl md:text-8xl font-[800] uppercase tracking-tighter leading-[0.95] mb-10">
-        L'EXPÉRIENCE<br><span class="text-transparent" style="-webkit-text-stroke: 1px white;">AUTOMOBILE</span><br>DÉFINITIVE
+        L'EXPÉRIENCE<br><span class="text-outline">AUTOMOBILE</span><br>DÉFINITIVE
       </h1>
       <a href="catalogue.html" class="inline-block bg-[#ff4d4d] text-white font-black py-5 px-12 rounded-2xl hover:bg-white hover:text-black transition-all duration-300 uppercase text-[11px] tracking-widest shadow-xl shadow-red-900/30">
         Explorer le catalogue
@@ -87,70 +85,73 @@
     </div>
   </section>
 
-  <!-- QUI SOMMES-NOUS (CADRE GLASS-MORPHISM) -->
+  <!-- QUI SOMMES-NOUS -->
   <section class="max-w-6xl mx-auto px-6 py-32">
-    <h2 class="text-4xl md:text-5xl font-black text-center mb-16 uppercase tracking-tighter">
-      QUI <span class="text-[#ff4d4d] italic">SOMMES-NOUS</span> ?
-    </h2>
-    <div class="bg-white/5 border border-white/5 backdrop-blur-md rounded-[3rem] p-12 text-center">
-      <p class="text-gray-300 text-lg md:text-xl leading-relaxed font-semibold uppercase tracking-tight">
-        Le <span class="text-white font-black italic">Concessionnaire Automobile</span> est l'acteur majeur du luxe à Los Santos. 
-        Qualité, fiabilité et passion : nous redéfinissons les standards du marché pour offrir une expérience 
-        <span class="text-[#ff4d4d]">Elite</span> à chaque client qui franchit nos portes.
+    <h2 class="text-4xl md:text-6xl font-black mb-16 uppercase tracking-tighter italic">Qui <span class="text-[#ff4d4d]">sommes-nous</span> ?</h2>
+    <div class="bg-[#151515] border border-white/5 rounded-[3rem] p-12">
+      <p class="text-gray-300 text-lg md:text-2xl leading-relaxed font-semibold uppercase tracking-tight italic">
+        Le <span class="text-white font-black">Concessionnaire Automobile</span>, implanté à Los Santos, est un acteur incontournable. 
+        Fort d’une expertise reconnue et d’un savoir-faire unique, nous allions qualité, fiabilité et passion. 
+        Notre mission ? <span class="text-[#ff4d4d]">Faire de notre concession la référence absolue de l'État.</span>
       </p>
     </div>
   </section>
 
-  <!-- POURQUOI NOUS ? (GRID STYLE AVIS) -->
+  <!-- POURQUOI NOUS CHOISIR -->
   <section class="max-w-7xl mx-auto px-6 py-16">
+    <h2 class="text-4xl md:text-5xl font-black mb-16 uppercase tracking-tighter">
+      Pourquoi choisir le <span class="text-[#ff4d4d]">Concessionnaire Automobile</span> ?
+    </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       <div class="elite-card rounded-[2.5rem] p-10">
         <h3 class="text-xl font-black text-[#ff4d4d] mb-4">01. FIABILITÉ</h3>
-        <p class="text-gray-500 text-[10px] font-bold uppercase leading-relaxed">Une équipe disponible, à l'écoute et dans une ambiance conviviale.</p>
+        <p class="text-gray-500 text-[10px] font-bold uppercase leading-relaxed">Optez pour une équipe disponible et à l’écoute dans une ambiance conviviale.</p>
       </div>
       <div class="elite-card rounded-[2.5rem] p-10">
         <h3 class="text-xl font-black text-[#ff4d4d] mb-4">02. SERVICE</h3>
-        <p class="text-gray-500 text-[10px] font-bold uppercase leading-relaxed">Venez découvrir nos véhicules et finaliser votre projet en VIP.</p>
-      </div>
-      <div class="elite-card rounded-[2.5rem] p-10 border-[#ff4d4d]/30">
-        <h3 class="text-xl font-black text-[#ff4d4d] mb-4">03. CATALOGUE</h3>
-        <p class="text-gray-500 text-[10px] font-bold uppercase leading-relaxed">Chaque véhicule est sélectionné pour garantir performance et sécurité.</p>
+        <p class="text-gray-500 text-[10px] font-bold uppercase leading-relaxed">Venez sur place pour découvrir nos véhicules et finaliser votre achat.</p>
       </div>
       <div class="elite-card rounded-[2.5rem] p-10">
+        <h3 class="text-xl font-black text-[#ff4d4d] mb-4">03. CATALOGUE</h3>
+        <p class="text-gray-500 text-[10px] font-bold uppercase leading-relaxed">Chaque véhicule est sélectionné avec soin pour garantir qualité et performance.</p>
+      </div>
+      <div class="elite-card rounded-[2.5rem] p-10 border-[#ff4d4d]/30">
         <h3 class="text-xl font-black text-[#ff4d4d] mb-4">04. PRIORITÉ</h3>
-        <p class="text-gray-500 text-[10px] font-bold uppercase leading-relaxed">Votre satisfaction est le coeur de notre engagement quotidien.</p>
+        <p class="text-gray-500 text-[10px] font-bold uppercase leading-relaxed">Nous mettons tout en œuvre pour offrir un service humain et fiable.</p>
       </div>
     </div>
   </section>
 
-  <!-- FAQ (ACCORDÉON AVEC STYLE AVIS) -->
+  <!-- FAQ -->
   <section class="max-w-4xl mx-auto px-6 py-32">
-    <h2 class="text-4xl font-black text-center mb-16 uppercase tracking-tighter">FOIRE AUX <span class="text-[#ff4d4d]">QUESTIONS</span></h2>
-    <div class="space-y-6">
+    <h2 class="text-4xl font-black text-center mb-16 uppercase tracking-tighter">Foire aux Questions <span class="text-[#ff4d4d] italic">(FAQ)</span></h2>
+    <div class="space-y-4">
       <div class="bg-[#151515] rounded-3xl border border-white/5 overflow-hidden">
-        <button class="faq-btn w-full p-8 flex justify-between items-center text-left focus:outline-none">
-          <span class="text-[11px] font-black uppercase tracking-widest text-white">Quelle est l'atmosphère au showroom ?</span>
-          <svg class="faq-icon w-5 h-5 text-[#ff4d4d] transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
+        <button class="faq-btn w-full p-8 flex justify-between items-center text-left">
+          <span class="text-[11px] font-black uppercase tracking-widest">Atmosphère de la concession ?</span>
+          <svg class="faq-icon w-5 h-5 text-[#ff4d4d] transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
         </button>
-        <div class="faq-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-          <p class="p-8 text-gray-500 text-[10px] font-bold uppercase border-t border-white/5">L'ambiance est conviviale et dynamique. Nous favorisons des relations basées sur la confiance et le respect.</p>
+        <div class="faq-content max-h-0 overflow-hidden transition-all duration-500">
+          <p class="p-8 text-gray-500 text-[10px] font-bold uppercase border-t border-white/5">Chez nous, l’ambiance est conviviale et dynamique. Nous sommes proches de nos employés et de nos clients.</p>
         </div>
       </div>
-      <!-- FAQ Item 2 -->
       <div class="bg-[#151515] rounded-3xl border border-white/5 overflow-hidden">
-        <button class="faq-btn w-full p-8 flex justify-between items-center text-left focus:outline-none">
-          <span class="text-[11px] font-black uppercase tracking-widest text-white">Comment acheter un véhicule ?</span>
-          <svg class="faq-icon w-5 h-5 text-[#ff4d4d] transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
+        <button class="faq-btn w-full p-8 flex justify-between items-center text-left">
+          <span class="text-[11px] font-black uppercase tracking-widest">Comment acheter ?</span>
+          <svg class="faq-icon w-5 h-5 text-[#ff4d4d] transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path></svg>
         </button>
-        <div class="faq-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-          <p class="p-8 text-gray-500 text-[10px] font-bold uppercase border-t border-white/5">Les achats se font directement en concession avec nos conseillers dédiés.</p>
+        <div class="faq-content max-h-0 overflow-hidden transition-all duration-500">
+          <p class="p-8 text-gray-500 text-[10px] font-bold uppercase border-t border-white/5">Directement au showroom auprès de nos vendeurs qui vous accompagnent dans toutes les étapes.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CHIFFRES CLÉS (CARRES MASSIFS) -->
-  <section class="max-w-6xl mx-auto px-6 py-20">
+  <!-- CHIFFRES CLÉS -->
+  <section class="max-w-7xl mx-auto px-6 py-20">
+    <h2 class="text-4xl md:text-5xl font-black mb-16 uppercase tracking-tighter text-center italic">
+      Nos <span class="text-[#ff4d4d]">chiffres clés</span>
+    </h2>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
       <div class="bg-[#ff4d4d] p-10 rounded-[2.5rem] text-center text-white">
         <p class="text-5xl font-black mb-1">99%</p>
@@ -171,54 +172,53 @@
     </div>
   </section>
 
-  <!-- LIGNE DE SÉPARATION DÉGRADÉE -->
-  <div class="max-w-6xl mx-auto px-6 mb-20">
-    <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+  <!-- LIGNE SÉPARATION -->
+  <div class="max-w-7xl mx-auto px-6 mt-20">
+    <div class="h-[1px] w-full bg-gradient-to-r from-white/10 via-white/5 to-transparent"></div>
   </div>
 
-  <!-- PARTENAIRES (DÉFILEMENT FLUIDE) -->
-  <section class="py-24 overflow-hidden">
-    <h2 class="text-center text-[10px] font-black tracking-[0.4em] text-gray-600 uppercase mb-16 italic italic">Confiances Partenaires</h2>
-    <div class="partner-scroll flex items-center gap-24">
-      <img src="https://i.goopics.net/ja2b6l.png" alt="P" class="h-14 opacity-20 hover:opacity-100 transition grayscale hover:grayscale-0 duration-500" />
-      <img src="https://i.goopics.net/hqn2br.png" alt="P" class="h-14 opacity-20 hover:opacity-100 transition grayscale hover:grayscale-0 duration-500" />
-      <img src="https://i.goopics.net/jpcnos.png" alt="P" class="h-14 opacity-20 hover:opacity-100 transition grayscale hover:grayscale-0 duration-500" />
-      <img src="https://i.goopics.net/wu8roj.png" alt="P" class="h-14 opacity-20 hover:opacity-100 transition grayscale hover:grayscale-0 duration-500" />
-      <!-- Repeat -->
-      <img src="https://i.goopics.net/ja2b6l.png" alt="P" class="h-14 opacity-20 hover:opacity-100 transition grayscale hover:grayscale-0 duration-500" />
-      <img src="https://i.goopics.net/hqn2br.png" alt="P" class="h-14 opacity-20 hover:opacity-100 transition grayscale hover:grayscale-0 duration-500" />
+  <!-- PARTENAIRES -->
+  <section class="max-w-7xl mx-auto px-6 py-32">
+    <h2 class="text-4xl md:text-5xl font-black mb-16 uppercase tracking-tighter">
+      Nos <span class="text-[#ff4d4d]">Partenaires</span>
+    </h2>
+    <div class="overflow-hidden">
+      <div class="partner-scroll flex items-center gap-24 py-4">
+        <!-- brightness-0 rend les logos noirs -->
+        <img src="https://i.goopics.net/ja2b6l.png" class="h-14 brightness-0 opacity-40 hover:opacity-100 transition duration-500" />
+        <img src="https://i.goopics.net/hqn2br.png" class="h-14 brightness-0 opacity-40 hover:opacity-100 transition duration-500" />
+        <img src="https://i.goopics.net/jpcnos.png" class="h-14 brightness-0 opacity-40 hover:opacity-100 transition duration-500" />
+        <img src="https://i.goopics.net/wu8roj.png" class="h-14 brightness-0 opacity-40 hover:opacity-100 transition duration-500" />
+        <!-- Repeat -->
+        <img src="https://i.goopics.net/ja2b6l.png" class="h-14 brightness-0 opacity-40 hover:opacity-100 transition duration-500" />
+        <img src="https://i.goopics.net/hqn2br.png" class="h-14 brightness-0 opacity-40 hover:opacity-100 transition duration-500" />
+      </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="py-12 border-t border-white/5 text-center">
-    <p class="text-gray-700 text-[10px] font-black uppercase tracking-[0.3em]">
+    <p class="text-gray-700 text-[10px] font-black uppercase tracking-[0.4em]">
       &copy; 2026 L'AUTO ELITE. TOUS DROITS RÉSERVÉS.
     </p>
   </footer>
 
   <script>
-    // HEADER SCROLL
     window.addEventListener('scroll', () => {
-      const header = document.getElementById('header');
-      header.classList.toggle('nav-shadow', window.scrollY > 20);
+      document.getElementById('header').classList.toggle('nav-shadow', window.scrollY > 20);
     });
 
-    // MOBILE MENU
     const burger = document.getElementById('burger');
     const mobileMenu = document.getElementById('mobileMenu');
     burger.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
-    // FAQ ACCORDEON
     document.querySelectorAll('.faq-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const content = btn.nextElementSibling;
         const icon = btn.querySelector('.faq-icon');
         const isOpen = content.style.maxHeight;
-
         document.querySelectorAll('.faq-content').forEach(c => c.style.maxHeight = null);
         document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('rotate-180'));
-
         if (!isOpen) {
           content.style.maxHeight = content.scrollHeight + "px";
           icon.classList.add('rotate-180');
