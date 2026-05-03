@@ -149,11 +149,11 @@
 
       const formData = new FormData(form);
       const payload = {
-        content: "<@&1298348457995800638>", // Ping du rôle
+        content: "<@1498383326174515339>", // Ping du rôle
         embeds: [{
-          title: "📅 __NOUVELLE DEMANDE DE RDV ELITE__",
+          title: "📅 __NOUVELLE DEMANDE DE RENDEZ-VOUS__",
           color: 0xff4d4d, // Rouge Elite
-          thumbnail: { url: "https://i.goopics.net/u2rl1l.png" },
+          thumbnail: { url: "https://i.goopics.net/srmg4w.png" },
           fields: [
             { name: "👤 __CLIENT__", value: formData.get('Nom') || "NON SPÉCIFIÉ", inline: true },
             { name: "📞 __TÉLÉPHONE__", value: formData.get('Numéro de Téléphone') || "NON SPÉCIFIÉ", inline: true },
@@ -161,7 +161,7 @@
             { name: "⏰ __HEURE__", value: formData.get('HeureRendezVous'), inline: true },
             { name: "📝 __OBJET__", value: formData.get('Commentaire') || "AUCUN DÉTAIL", inline: false }
           ],
-          footer: { text: "SYSTÈME DE RÉSERVATION L'AUTO ELITE" },
+          footer: { text: "DEMANDE DE RENDEZ-VOUS - CONCESSIONNAIRE AUTOMOBILE" },
           timestamp: new Date().toISOString()
         }]
       };
