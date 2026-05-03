@@ -1,344 +1,157 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="FR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Concessionnaire Automobile</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-    /* Underline animé */
-    nav a {
-      position: relative;
-      color: white; /* texte blanc */
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-    nav a::after {
-      content: '';
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      left: 0;
-      bottom: -4px;
-      background-color: #4f46e5;
-      transition: width 0.3s ease;
-      border-radius: 2px;
-    }
-    nav a:hover::after, nav a.active::after {
-      width: 100%;
-    }
-    nav a:hover {
-      color: #4338ca; /* indigo-700 */
-    }
+    <meta charset="UTF-8">
+    <meta name="VIEWPORT" content="width=device-width, initial-scale=1.0">
+    <title>L'AUTO ELITE | ACCUEIL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0d0d0d; color: #ffffff; overflow-x: hidden; }
+        
+        .hero-video {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100vh;
+            object-fit: cover; opacity: 0.4; z-index: -1;
+        }
 
-    /* Ombre + fond sombre au scroll */
-    .nav-shadow {
-      box-shadow: 0 2px 10px rgb(0 0 0 / 0.2);
-      backdrop-filter: saturate(180%) blur(10px);
-      background-color: rgba(17, 24, 39, 0.95); /* gris très foncé/indigo */
-      transition: box-shadow 0.3s ease, background-color 0.3s ease;
-    }
-  </style>
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(13,13,13,0.5) 0%, #0d0d0d 100%);
+            position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1;
+        }
+
+        .force-caps { text-transform: uppercase; }
+        
+        .btn-elite {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(255, 77, 77, 0.2);
+        }
+        .btn-elite:hover { transform: scale(1.05); box-shadow: 0 15px 40px rgba(255, 77, 77, 0.4); }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
 </head>
-<body class="bg-gray-900 shadow-md transition-colors duration-300">
+<body>
 
-<header id="header" 
-  class="fixed top-0 left-0 w-full z-50 
-         bg-gradient-to-r from-gray-900/80 via-indigo-900/80 to-gray-900/80 
-         shadow-md transition-colors duration-300">
-  <nav class="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 md:px-12 font-sans">
-    <!-- Logo + Nom -->
-    <a href="#" class="flex items-center gap-3">
-      <img src="https://i.goopics.net/u2rl1l.png" alt="Logo Concessionnaire Automobile" class="w-10 h-10 rounded shadow-md" />
-      <span class="text-indigo-400 text-2xl font-extrabold tracking-tight hover:text-indigo-300 transition duration-300">
-        Concessionnaire Automobile
-      </span>
-    </a>
-
-    <!-- Menu Desktop -->
-    <nav class="hidden md:flex items-center justify-between gap-6 text-sm font-semibold text-white">
-      <ul class="flex items-center gap-6">
-        <li><a href="index.html" class="hover:text-indigo-300 transition">Accueil</a></li>
-        <li><a href="catalogue.html" class="hover:text-indigo-300 transition">Catalogue</a></li>
-        <li><a href="avis.html" class="hover:text-indigo-300 transition">Avis Clients</a></li>
-        <li><a href="equipe.html" class="hover:text-indigo-300 transition">Notre Équipe</a></li>
-        <li><a href="actualites.html" class="hover:text-indigo-300 transition">Actualités</a></li>
-        <li><a href="contact.html" class="hover:text-indigo-300 transition">Contact</a></li>
-      </ul>
-      <!-- Bouton Intranet -->
-      <a href="candidature.html"
-         class="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-purple-600 hover:to-indigo-500 text-white font-semibold text-sm py-2 px-4 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 ease-in-out whitespace-nowrap ml-6">
-        📝 Poster sa candidature
-      </a>
+    <!-- NAVIGATION -->
+    <nav class="flex justify-between items-center px-12 py-6 bg-black/80 backdrop-blur-md fixed w-full z-50 border-b border-white/5">
+        <div class="text-xl font-extrabold uppercase tracking-tighter">
+            L'AUTO <span class="text-[#ff4d4d]">ELITE</span>
+        </div>
+        <div class="hidden md:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400">
+            <a href="index.html" class="text-white border-b-2 border-[#ff4d4d] pb-1">ACCUEIL</a>
+            <a href="catalogue.html" class="hover:text-white transition">OCCASIONS</a>
+            <a href="avis.html" class="hover:text-white transition">AVIS</a>
+            <a href="equipe.html" class="hover:text-white transition">ÉQUIPE</a>
+        </div>
+        <button class="bg-[#ff4d4d] text-white px-8 py-2.5 rounded-full text-[10px] font-black uppercase btn-elite">CONNEXION</button>
     </nav>
 
-<!-- Hamburger mobile -->
-<button id="burger" class="md:hidden focus:outline-none relative z-50">
-  <svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" stroke-width="2"
-       viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="3" y1="6" x2="21" y2="6"></line>
-    <line x1="3" y1="12" x2="21" y2="12"></line>
-    <line x1="3" y1="18" x2="21" y2="18"></line>
-  </svg>
-</button>
-</nav>
+    <!-- HERO SECTION -->
+    <section class="h-screen flex flex-col justify-center items-center text-center px-6 relative">
+        <div class="hero-overlay"></div>
+        <!-- Remplace par une vidéo de voiture stylée si tu en as une -->
+        <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=2070&auto=format&fit=crop" class="hero-video" alt="Car Background">
+        
+        <h2 class="text-[#ff4d4d] text-[10px] font-black uppercase tracking-[0.5em] mb-6">BIENVENUE CHEZ L'ÉLITE AUTOMOBILE</h2>
+        <h1 class="text-5xl md:text-9xl font-black uppercase tracking-tighter leading-none mb-10">
+            DRIVE THE <br><span class="text-transparent" style="-webkit-text-stroke: 1px white;">EXCEPTION</span>
+        </h1>
+        
+        <div class="flex flex-col md:flex-row gap-6">
+            <a href="catalogue.html" class="bg-[#ff4d4d] text-white px-12 py-5 rounded-2xl text-[12px] font-black uppercase btn-elite">Explorer le stock</a>
+            <a href="avis.html" class="bg-white/10 hover:bg-white/20 text-white px-12 py-5 rounded-2xl text-[12px] font-black uppercase backdrop-blur-md transition">Lire les avis</a>
+        </div>
+    </section>
 
-<!-- Menu Mobile -->
-<div id="mobileMenu" class="hidden md:hidden mx-4 mt-2 px-4 py-4 rounded-xl shadow-xl backdrop-blur-md border border-white/30 bg-white/10 text-white">
-  <ul class="flex flex-col gap-2 text-base font-medium text-center">
-    <li><a href="index.html" class="block py-1.5 rounded-lg hover:bg-white/20 transition">🏠 Accueil</a></li>
-    <li><a href="catalogue.html" class="block py-1.5 rounded-lg hover:bg-white/20 transition">📖 Catalogue</a></li>
-    <li><a href="avis.html" class="block py-1.5 rounded-lg hover:bg-white/20 transition">⭐ Avis Clients</a></li>
-    <li><a href="equipe.html" class="block py-1.5 rounded-lg hover:bg-white/20 transition">👥 Notre Équipe</a></li>
-    <li><a href="actualites.html" class="block py-1.5 rounded-lg hover:bg-white/20 transition">📰 Actualités</a></li>
-    <li><a href="contact.html" class="block py-1.5 rounded-lg hover:bg-white/20 transition">📩 Contact</a></li>
-    <li><a href="candidature.html" class="block py-1.5 rounded-lg hover:bg-white/20 transition">📝 Poster sa candidature</a></li>
-  </ul>
-</div>
-</header>
+    <!-- SECTION CHIFFRES CLÉS -->
+    <section class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="text-center">
+                <span id="homeMoyenne" class="text-6xl font-black text-[#ff4d4d] block mb-2">4.9</span>
+                <span class="text-xs font-black uppercase tracking-widest text-gray-500">Note moyenne clients</span>
+            </div>
+            <div class="text-center border-x border-white/5">
+                <span class="text-6xl font-black text-white block mb-2">150+</span>
+                <span class="text-xs font-black uppercase tracking-widest text-gray-500">Véhicules livrés / an</span>
+            </div>
+            <div class="text-center">
+                <span class="text-6xl font-black text-white block mb-2">24H</span>
+                <span class="text-xs font-black uppercase tracking-widest text-gray-500">Garantie & Support</span>
+            </div>
+        </div>
+    </section>
 
-<script>
-  // Toggle menu mobile
-  const burger = document.getElementById('burger');
-  const mobileMenu = document.getElementById('mobileMenu');
+    <!-- SECTION VITRINE RAPIDE -->
+    <section class="py-24 bg-[#0a0a0a]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-16">
+                <div>
+                    <h3 class="text-[#ff4d4d] text-[10px] font-black uppercase tracking-widest mb-4">ARRIVAGES RÉCENTS</h3>
+                    <h2 class="text-4xl font-black uppercase tracking-tighter">NOS DERNIÈRES <span class="italic text-transparent" style="-webkit-text-stroke: 1px white;">PÉPITES</span></h2>
+                </div>
+                <a href="catalogue.html" class="text-[10px] font-black uppercase tracking-widest border-b-2 border-[#ff4d4d] pb-2 hover:text-[#ff4d4d] transition">Voir tout le stock</a>
+            </div>
 
-  burger.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-  });
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Card 1 -->
+                <div class="group relative overflow-hidden rounded-[3rem] bg-[#151515] border border-white/5">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop" class="w-full h-[400px] object-cover opacity-60 group-hover:scale-110 transition duration-700" alt="Porsche">
+                    <div class="absolute bottom-0 left-0 p-10 w-full bg-gradient-to-t from-black to-transparent">
+                        <span class="bg-[#ff4d4d] text-white px-4 py-1 rounded-full text-[9px] font-black uppercase mb-4 inline-block">Nouveau</span>
+                        <h4 class="text-2xl font-black uppercase tracking-tighter">PORSCHE 911 GT3 RS</h4>
+                        <p class="text-gray-400 text-xs font-bold uppercase tracking-widest">2024 • 1 200 KM • 245 000€</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="group relative overflow-hidden rounded-[3rem] bg-[#151515] border border-white/5">
+                    <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=2070&auto=format&fit=crop" class="w-full h-[400px] object-cover opacity-60 group-hover:scale-110 transition duration-700" alt="Ferrari">
+                    <div class="absolute bottom-0 left-0 p-10 w-full bg-gradient-to-t from-black to-transparent">
+                        <span class="bg-white/10 text-white px-4 py-1 rounded-full text-[9px] font-black uppercase mb-4 inline-block">Vendu</span>
+                        <h4 class="text-2xl font-black uppercase tracking-tighter">FERRARI F8 TRIBUTO</h4>
+                        <p class="text-gray-400 text-xs font-bold uppercase tracking-widest">2023 • 4 500 KM • SUR DEMANDE</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  // Ombre barre au scroll
-  const header = document.getElementById('header');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 10) {
-      header.classList.add('nav-shadow');
-    } else {
-      header.classList.remove('nav-shadow');
-    }
-  });
-</script>
+    <!-- FOOTER SIMPLE -->
+    <footer class="py-20 border-t border-white/5 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+            <div class="text-xl font-extrabold uppercase tracking-tighter">
+                L'AUTO <span class="text-[#ff4d4d]">ELITE</span>
+            </div>
+            <p class="text-gray-600 text-[10px] font-bold uppercase tracking-widest text-center">
+                © 2026 L'AUTO ELITE — TOUS DROITS RÉSERVÉS. <br>
+                CONCEPTION HAUTE PERFORMANCE.
+            </p>
+            <div class="flex gap-6">
+                <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-[#ff4d4d] transition cursor-pointer">
+                    <span class="text-[10px] font-black">IG</span>
+                </div>
+                <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-[#ff4d4d] transition cursor-pointer">
+                    <span class="text-[10px] font-black">FB</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // RÉCUPÉRATION DE LA NOTE MOYENNE RÉELLE DEPUIS LA PAGE AVIS
+        function updateHomeStats() {
+            const avisData = JSON.parse(localStorage.getItem('elite_avis_final_v5')) || [];
+            if (avisData.length > 0) {
+                const moyenne = (avisData.reduce((acc, a) => acc + a.note, 0) / avisData.length).toFixed(1);
+                document.getElementById('homeMoyenne').innerText = moyenne;
+            }
+        }
+        
+        // Mise à jour au chargement
+        updateHomeStats();
+    </script>
+</body>
 </html>
-
-<!-- Bannière principale -->
-<header class="hero bg-[url('https://i.goopics.net/vkekhc.png')] bg-cover bg-center h-[40vh] sm:h-[50vh] md:h-[30vh] flex flex-col justify-center items-center px-4 sm:px-6 text-white text-center relative overflow-hidden rounded-3xl shadow-2xl mt-16">
-  <div class="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
-
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&display=swap" rel="stylesheet">
-
-  <div class="relative z-10 max-w-4xl text-center">
-    <h1 class="text-3xl sm:text-4xl md:text-6xl tracking-tight drop-shadow-xl leading-tight"
-        style="font-family: 'Montserrat Alternates', sans-serif;">
-      Bienvenue sur le site du <span class="text-indigo-400">Concessionnaire Automobile</span>
-    </h1>
-    <p class="mt-4 sm:mt-6 max-w-3xl mx-auto text-center text-sm sm:text-base md:text-xl drop-shadow-md">
-       La concession de référence à Los Santos
-    </p>
-  </div>
-
-  <a href="catalogue.html" 
-     class="relative z-20 mt-6 sm:mt-10 inline-block bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-purple-600 hover:to-indigo-500 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl shadow-lg transition duration-300 ease-in-out text-sm sm:text-base">
-    Voir notre Catalogue
-  </a>
-</header>
-
-<!-- Qui sommes-nous ? -->
-<section class="max-w-6xl mx-auto px-6 py-16 mt-20 bg-transparent">
-  <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-14 text-white tracking-tight">
-    Qui <span class="bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">sommes-nous</span> ?
-  </h2>
-
-  <div class="bg-white/10 backdrop-blur-md rounded-xl shadow-lg p-8 text-center border border-white/10 transition transform hover:-translate-y-2 hover:shadow-2xl">
-    <p class="text-gray-300 text-lg md:text-xl leading-relaxed">
-      Le <span class="font-bold text-indigo-400">Concessionnaire Automobile</span>, implantée à Los Santos, est un acteur incontournable
-      dans le domaine de l’automobile. Fort d’une expertise reconnue et d’un savoir-faire unique,
-      nous allions qualité, fiabilité et passion du monde automobile.
-      Notre mission ? <span class="italic text-indigo-400">Faire du Concessionnaire la référence en matière de vente,
-      tout en créant un environnement accueillant pour nos clients et nos employés.</span>
-    </p>
-  </div>
-</section>
-
-<!-- Pourquoi choisir le Concessionnaire Automobile ? -->
-<section class="max-w-[90%] sm:max-w-6xl mx-auto px-4 sm:px-6 py-16 mt-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl shadow-2xl">
-  <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-14 text-white tracking-tight">
-    Pourquoi choisir le 
-    <span class="bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
-      Concessionnaire Automobile
-    </span> ?
-  </h2>
-
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-    <!-- Carte -->
-    <div class="bg-white/10 backdrop-blur-md rounded-xl shadow-lg p-6 text-center border border-white/10 transition transform hover:-translate-y-2 hover:shadow-2xl">
-      <h3 class="text-xl font-bold mb-3 text-indigo-400">1. Fiabilité</h3>
-      <p class="text-gray-300 leading-relaxed">Optez pour une équipe disponible et à l’écoute et dans une ambiance conviviale.</p>
-    </div>
-
-    <div class="bg-white/10 backdrop-blur-md rounded-xl shadow-lg p-6 text-center border border-white/10 transition transform hover:-translate-y-2 hover:shadow-2xl">
-      <h3 class="text-xl font-bold mb-3 text-indigo-400">2. Service</h3>
-      <p class="text-gray-300 leading-relaxed">Venez sur place pour découvrir nos véhicules et finaliser votre achat avec notre équipe.</p>
-    </div>
-
-    <div class="bg-white/10 backdrop-blur-md rounded-xl shadow-lg p-6 text-center border border-white/10 transition transform hover:-translate-y-2 hover:shadow-2xl">
-      <h3 class="text-xl font-bold mb-3 text-indigo-400">3. Notre catalogue</h3>
-      <p class="text-gray-300 leading-relaxed">Chaque véhicule est sélectionné avec soin, afin de garantir qualité et performance sur la route.</p>
-    </div>
-
-    <div class="bg-white/10 backdrop-blur-md rounded-xl shadow-lg p-6 text-center border border-white/10 transition transform hover:-translate-y-2 hover:shadow-2xl">
-      <h3 class="text-xl font-bold mb-3 text-indigo-400">4. Votre satisfaction, notre priorité</h3>
-      <p class="text-gray-300 leading-relaxed">Nous mettons tout en œuvre pour offrir un service fiable, humain et à l’écoute des besoins de chacun.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Section FAQ -->
-<section class="max-w-5xl mx-auto px-6 py-20">
-  <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-14 text-white tracking-tight">
-    Foire aux Questions <span class="bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">(FAQ)</span>
-  </h2>
-
-  <div class="space-y-6">
-   <!-- Item FAQ -->
-    <div class="bg-white/10 backdrop-blur-md rounded-xl border border-white/10 shadow-lg overflow-hidden transition hover:shadow-2xl">
-      <button aria-expanded="false" class="faq-question flex justify-between items-center w-full px-6 py-5 text-left text-white font-semibold tracking-wide focus:outline-none">
-        <span>Quelle est l’atmosphère au Concessionnaire ?</span>
-        <svg class="faq-icon w-6 h-6 text-indigo-400 transform transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-          <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
-      </button>
-      <div class="faq-answer max-h-0 overflow-hidden px-6 text-gray-300 transition-all duration-500 ease-in-out">
-        <p class="py-4">Chez le Concessionnaire Automobile, l’ambiance est conviviale et dynamique. Nous sommes proches de nos employés, favorisant des relations authentiques, basées sur la confiance et le respect. Ici, chacun fait partie de la grande famille Concessionnaire Automobile.</p>
-      </div>
-    </div>
-
-    <!-- Item FAQ -->
-    <div class="bg-white/10 backdrop-blur-md rounded-xl border border-white/10 shadow-lg overflow-hidden transition hover:shadow-2xl">
-      <button aria-expanded="false" class="faq-question flex justify-between items-center w-full px-6 py-5 text-left text-white font-semibold tracking-wide focus:outline-none">
-        <span>Comment acheter un véhicule ?</span>
-        <svg class="faq-icon w-6 h-6 text-indigo-400 transform transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-          <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
-      </button>
-      <div class="faq-answer max-h-0 overflow-hidden px-6 text-gray-300 transition-all duration-500 ease-in-out">
-        <p class="py-4">Les achats se font directement au concessionnaire, auprès de nos vendeurs, qui vous accompagnent dans toutes les étapes de votre acquisition.</p>
-      </div>
-    </div>
-
-    <!-- Item FAQ -->
-    <div class="bg-white/10 backdrop-blur-md rounded-xl border border-white/10 shadow-lg overflow-hidden transition hover:shadow-2xl">
-      <button aria-expanded="false" class="faq-question flex justify-between items-center w-full px-6 py-5 text-left text-white font-semibold tracking-wide focus:outline-none">
-        <span>Comment dois-je procéder pour faire une candidature ?</span>
-        <svg class="faq-icon w-6 h-6 text-indigo-400 transform transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-          <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
-      </button>
-      <div class="faq-answer max-h-0 overflow-hidden px-6 text-gray-300 transition-all duration-500 ease-in-out">
-        <p class="py-4">Il faut attendre que nous annoncions l’ouverture d’une session de recrutement. Il faudra alors postuler via cette application mobile, dans la section <a href="candidature.html" class="text-indigo-600 underline">"Poster sa Candidature"</a>.</p>
-      </div>
-    </div>
-
-    <!-- Item FAQ -->
-    <div class="bg-white/10 backdrop-blur-md rounded-xl border border-white/10 shadow-lg overflow-hidden transition hover:shadow-2xl">
-      <button aria-expanded="false" class="faq-question flex justify-between items-center w-full px-6 py-5 text-left text-white font-semibold tracking-wide focus:outline-none">
-        <span>Puis-je organiser un événement ou une collaboration ?</span>
-        <svg class="faq-icon w-6 h-6 text-indigo-400 transform transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-          <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
-      </button>
-      <div class="faq-answer max-h-0 overflow-hidden px-6 text-gray-300 transition-all duration-500 ease-in-out">
-        <p class="py-4">Oui, c’est possible ! Il suffit de prendre rendez-vous avec les membres de la direction afin d’en discuter en détail.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<script>
-  // Accordéon FAQ avec rotation icône
-  document.querySelectorAll('.faq-question').forEach(button => {
-    button.addEventListener('click', () => {
-      const expanded = button.getAttribute('aria-expanded') === 'true';
-      button.setAttribute('aria-expanded', !expanded);
-
-      const answer = button.nextElementSibling;
-      const icon = button.querySelector('.faq-icon');
-
-      if (!expanded) {
-        answer.style.maxHeight = answer.scrollHeight + 'px';
-        icon.classList.add('rotate-180');
-      } else {
-        answer.style.maxHeight = null;
-        icon.classList.remove('rotate-180');
-      }
-    });
-  });
-</script>
-
-<!-- Section Chiffres clés -->
-<section class="max-w-[90%] sm:max-w-6xl mx-auto px-4 sm:px-6 py-16 mt-16 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl shadow-2xl">
-  <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-14 text-white tracking-tight">
-    Nos 
-    <span class="bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
-      chiffres clés
-    </span>
-  </h2>
-
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-    <div class="bg-white/10 backdrop-blur-md rounded-xl shadow-lg p-8 text-center border border-white/10 transition transform hover:-translate-y-2 hover:shadow-2xl">
-      <p class="text-5xl font-extrabold text-indigo-400">99%</p>
-      <p class="mt-3 text-lg font-semibold text-gray-300">Clients satisfaits</p>
-    </div>
-    <div class="bg-white/10 backdrop-blur-md rounded-xl shadow-lg p-8 text-center border border-white/10 transition transform hover:-translate-y-2 hover:shadow-2xl">
-      <p class="text-5xl font-extrabold text-indigo-400">+20</p>
-      <p class="mt-3 text-lg font-semibold text-gray-300">Employés</p>
-    </div>
-    <div class="bg-white/10 backdrop-blur-md rounded-xl shadow-lg p-8 text-center border border-white/10 transition transform hover:-translate-y-2 hover:shadow-2xl">
-      <p class="text-5xl font-extrabold text-indigo-400">7j/7</p>
-      <p class="mt-3 text-lg font-semibold text-gray-300">Disponibilité</p>
-    </div>
-    <div class="bg-white/10 backdrop-blur-md rounded-xl shadow-lg p-8 text-center border border-white/10 transition transform hover:-translate-y-2 hover:shadow-2xl">
-      <p class="text-5xl font-extrabold text-indigo-400">+10</p>
-      <p class="mt-3 text-lg font-semibold text-gray-300">Partenaires</p>
-    </div>
-  </div>
-</section>
-
-<!-- Partenaires -->
-<section class="max-w-5xl mx-auto px-6 py-16 mt-20">
-  <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-14 text-white tracking-tight">
-    Ils nous font <span class="bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">confiance</span>
-  </h2>
-
-  <div class="overflow-hidden relative mx-auto">
-    <div class="partner-scroll flex items-center space-x-12">
-      <!-- Logos originaux -->
-      <img src="https://i.goopics.net/ja2b6l.png" alt="Uwu Café" class="h-16 hover:grayscale-0 transition duration-300 cursor-pointer" />
-      <img src="https://i.goopics.net/hqn2br.png" alt="Benny's" class="h-16 hover:grayscale-0 transition duration-300 cursor-pointer" />
-      <img src="https://i.goopics.net/jpcnos.png" alt="Underdogs Records" class="h-16 hover:grayscale-0 transition duration-300 cursor-pointer" />
-      <img src="https://i.goopics.net/wu8roj.png" alt="Pawnshop Roxwood" class="h-16 hover:grayscale-0 transition duration-300 cursor-pointer" />
-      <!-- Logos répétés pour boucle fluide -->
-      <img src="https://i.goopics.net/ja2b6l.png" alt="Uwu Café" class="h-16 hover:grayscale-0 transition duration-300 cursor-pointer" />
-      <img src="https://i.goopics.net/hqn2br.png" alt="Benny's" class="h-16 hover:grayscale-0 transition duration-300 cursor-pointer" />
-      <img src="https://i.goopics.net/jpcnos.png" alt="Underdogs Records" class="h-16 hover:grayscale-0 transition duration-300 cursor-pointer" />
-      <img src="https://i.goopics.net/wu8roj.png" alt="Pawnshop Roxwood" class="h-16 hover:grayscale-0 transition duration-300 cursor-pointer" />
-    </div>
-  </div>
-</section>
-
-<style>
-@keyframes partner-slide {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-.partner-scroll {
-  animation: partner-slide 20s linear infinite;
-  width: max-content;
-}
-</style>
-
- <!-- Pied de page -->
-  <footer class="text-center py-6 text-gray-600 dark:text-gray-400 border-t border-gray-300 dark:border-gray-700 mt-12">
-    &copy; 2026 Concessionnaire Automobile. Tous droits réservés.
-  </footer>
