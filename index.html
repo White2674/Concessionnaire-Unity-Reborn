@@ -10,17 +10,21 @@
     body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0d0d0d; color: #ffffff; overflow-x: hidden; }
     
     /* STYLE SIGNATURE ELITE */
-    .elite-card { background: #1a1a1a; border: 1px solid #252525; transition: all 0.4s ease; }
+    .elite-card { background: #1a1a1a; border: 1px solid #252525; transition: all 0.4s ease; height: 100%; }
     .elite-card:hover { border-color: #ff4d4d; transform: translateY(-8px); }
     
     /* NAV ET EFFETS */
     .nav-shadow { background: rgba(13, 13, 13, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05); }
     .text-outline { -webkit-text-stroke: 1px white; color: transparent; }
 
-    /* ANIMATION PARTENAIRES */
+    /* TITRES HARMONISÉS */
+    .section-title { font-size: 2.5rem; line-height: 1.2; font-weight: 900; text-transform: uppercase; letter-spacing: -0.05em; text-align: center; margin-bottom: 4rem; }
+    @media (min-width: 768px) { .section-title { font-size: 3.5rem; } }
+
+    /* ANIMATION PARTENAIRES COLORÉS */
     @keyframes partner-slide {
       0% { transform: translateX(0); }
-      100% { transform: translateX(-30%); }
+      100% { transform: translateX(-50%); }
     }
     .partner-scroll { animation: partner-slide 20s linear infinite; width: max-content; }
   </style>
@@ -53,22 +57,10 @@
         <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
       </button>
     </nav>
-
-    <!-- Menu Mobile -->
-    <div id="mobileMenu" class="hidden md:hidden mx-4 mt-2 p-6 rounded-3xl bg-black/95 border border-white/5 text-white">
-      <ul class="flex flex-col gap-5 text-[11px] font-black uppercase tracking-widest text-center">
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="catalogue.html">Catalogue</a></li>
-        <li><a href="avis.html">Avis</a></li>
-        <li><a href="equipe.html">Équipe</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="candidature.html" class="text-[#ff4d4d]">Candidature</a></li>
-      </ul>
-    </div>
   </header>
 
   <!-- HERO SECTION -->
-  <section class="relative h-[70vh] flex flex-col justify-center items-center text-center px-6 mt-4">
+  <section class="relative h-[75vh] flex flex-col justify-center items-center text-center px-6 pt-20">
     <div class="absolute inset-0 z-0 mx-4 mt-4 overflow-hidden rounded-[3rem]">
       <img src="https://i.goopics.net/vkekhc.png" class="w-full h-full object-cover opacity-40" alt="Hero">
       <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-black/20 to-transparent"></div>
@@ -85,10 +77,10 @@
     </div>
   </section>
 
-  <!-- QUI SOMMES-NOUS -->
-  <section class="max-w-6xl mx-auto px-6 py-32">
-    <h2 class="text-4xl md:text-6xl font-black mb-16 uppercase tracking-tighter italic">Qui <span class="text-[#ff4d4d]">sommes-nous</span> ?</h2>
-    <div class="bg-[#151515] border border-white/5 rounded-[3rem] p-12">
+  <!-- QUI SOMMES-NOUS (CENTRÉ) -->
+  <section class="max-w-5xl mx-auto px-6 py-32 text-center">
+    <h2 class="section-title">Qui <span class="text-[#ff4d4d]">sommes-nous</span> ?</h2>
+    <div class="bg-[#151515] border border-white/5 rounded-[3rem] p-10 md:p-16">
       <p class="text-gray-300 text-lg md:text-2xl leading-relaxed font-semibold uppercase tracking-tight italic">
         Le <span class="text-white font-black">Concessionnaire Automobile</span>, implanté à Los Santos, est un acteur incontournable. 
         Fort d’une expertise reconnue et d’un savoir-faire unique, nous allions qualité, fiabilité et passion. 
@@ -97,35 +89,33 @@
     </div>
   </section>
 
-  <!-- POURQUOI NOUS CHOISIR -->
+  <!-- POURQUOI NOUS CHOISIR (CENTRÉ) -->
   <section class="max-w-7xl mx-auto px-6 py-16">
-    <h2 class="text-4xl md:text-5xl font-black mb-16 uppercase tracking-tighter">
-      Pourquoi choisir le <span class="text-[#ff4d4d]">Concessionnaire Automobile</span> ?
-    </h2>
+    <h2 class="section-title">Pourquoi choisir le <span class="text-[#ff4d4d]">Concessionnaire Automobile</span> ?</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="elite-card rounded-[2.5rem] p-10">
+      <div class="elite-card rounded-[2.5rem] p-10 text-center">
         <h3 class="text-xl font-black text-[#ff4d4d] mb-4">01. FIABILITÉ</h3>
         <p class="text-gray-500 text-[10px] font-bold uppercase leading-relaxed">Optez pour une équipe disponible et à l’écoute dans une ambiance conviviale.</p>
       </div>
-      <div class="elite-card rounded-[2.5rem] p-10">
+      <div class="elite-card rounded-[2.5rem] p-10 text-center">
         <h3 class="text-xl font-black text-[#ff4d4d] mb-4">02. SERVICE</h3>
         <p class="text-gray-500 text-[10px] font-bold uppercase leading-relaxed">Venez sur place pour découvrir nos véhicules et finaliser votre achat.</p>
       </div>
-      <div class="elite-card rounded-[2.5rem] p-10">
+      <div class="elite-card rounded-[2.5rem] p-10 text-center">
         <h3 class="text-xl font-black text-[#ff4d4d] mb-4">03. CATALOGUE</h3>
-        <p class="text-gray-500 text-[10px] font-bold uppercase leading-relaxed">Chaque véhicule est sélectionné avec soin pour garantir qualité et performance.</p>
+        <p class="text-gray-500 text-[10px] font-bold uppercase leading-relaxed">Chaque véhicule est sélectionné avec soin pour garantir performance.</p>
       </div>
-      <div class="elite-card rounded-[2.5rem] p-10 border-[#ff4d4d]/30">
+      <div class="elite-card rounded-[2.5rem] p-10 text-center">
         <h3 class="text-xl font-black text-[#ff4d4d] mb-4">04. PRIORITÉ</h3>
         <p class="text-gray-500 text-[10px] font-bold uppercase leading-relaxed">Nous mettons tout en œuvre pour offrir un service humain et fiable.</p>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="max-w-4xl mx-auto px-6 py-32">
-    <h2 class="text-4xl font-black text-center mb-16 uppercase tracking-tighter">Foire aux Questions <span class="text-[#ff4d4d] italic">(FAQ)</span></h2>
-    <div class="space-y-4">
+  <!-- FAQ (CENTRÉ) -->
+  <section class="max-w-4xl mx-auto px-6 py-32 text-center">
+    <h2 class="section-title">Questions <span class="text-[#ff4d4d]">(FAQ)</span></h2>
+    <div class="space-y-4 text-left">
       <div class="bg-[#151515] rounded-3xl border border-white/5 overflow-hidden">
         <button class="faq-btn w-full p-8 flex justify-between items-center text-left">
           <span class="text-[11px] font-black uppercase tracking-widest">Atmosphère de la concession ?</span>
@@ -147,11 +137,9 @@
     </div>
   </section>
 
-  <!-- CHIFFRES CLÉS -->
-  <section class="max-w-7xl mx-auto px-6 py-20">
-    <h2 class="text-4xl md:text-5xl font-black mb-16 uppercase tracking-tighter text-center italic">
-      Nos <span class="text-[#ff4d4d]">chiffres clés</span>
-    </h2>
+  <!-- CHIFFRES CLÉS (CENTRÉ) -->
+  <section class="max-w-7xl mx-auto px-6 py-20 text-center">
+    <h2 class="section-title">Nos <span class="text-[#ff4d4d]">chiffres clés</span></h2>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
       <div class="bg-[#ff4d4d] p-10 rounded-[2.5rem] text-center text-white">
         <p class="text-5xl font-black mb-1">99%</p>
@@ -172,31 +160,23 @@
     </div>
   </section>
 
-  <!-- LIGNE SÉPARATION -->
-  <div class="max-w-7xl mx-auto px-6 mt-20">
-    <div class="h-[1px] w-full bg-gradient-to-r from-white/10 via-white/5 to-transparent"></div>
-  </div>
-
-  <!-- PARTENAIRES -->
+  <!-- PARTENAIRES (LOGOS COLORÉS) -->
   <section class="max-w-7xl mx-auto px-6 py-32">
-    <h2 class="text-4xl md:text-5xl font-black mb-16 uppercase tracking-tighter">
-      Nos <span class="text-[#ff4d4d]">Partenaires</span>
-    </h2>
+    <h2 class="section-title text-left">Nos <span class="text-[#ff4d4d]">Partenaires</span></h2>
     <div class="overflow-hidden">
       <div class="partner-scroll flex items-center gap-24 py-4">
-        <!-- brightness-0 rend les logos noirs -->
-        <img src="https://i.goopics.net/ja2b6l.png" class="h-14 brightness-0 opacity-40 hover:opacity-100 transition duration-500" />
-        <img src="https://i.goopics.net/hqn2br.png" class="h-14 brightness-0 opacity-40 hover:opacity-100 transition duration-500" />
-        <img src="https://i.goopics.net/jpcnos.png" class="h-14 brightness-0 opacity-40 hover:opacity-100 transition duration-500" />
-        <img src="https://i.goopics.net/wu8roj.png" class="h-14 brightness-0 opacity-40 hover:opacity-100 transition duration-500" />
-        <!-- Repeat -->
-        <img src="https://i.goopics.net/ja2b6l.png" class="h-14 brightness-0 opacity-40 hover:opacity-100 transition duration-500" />
-        <img src="https://i.goopics.net/hqn2br.png" class="h-14 brightness-0 opacity-40 hover:opacity-100 transition duration-500" />
+        <!-- Suppression de brightness-0 pour garder les couleurs d'origine -->
+        <img src="https://i.goopics.net/ja2b6l.png" class="h-16 opacity-80 hover:opacity-100 transition duration-500" />
+        <img src="https://i.goopics.net/hqn2br.png" class="h-16 opacity-80 hover:opacity-100 transition duration-500" />
+        <img src="https://i.goopics.net/jpcnos.png" class="h-16 opacity-80 hover:opacity-100 transition duration-500" />
+        <img src="https://i.goopics.net/wu8roj.png" class="h-16 opacity-80 hover:opacity-100 transition duration-500" />
+        <!-- Boucle pour fluidité -->
+        <img src="https://i.goopics.net/ja2b6l.png" class="h-16 opacity-80 hover:opacity-100 transition duration-500" />
+        <img src="https://i.goopics.net/hqn2br.png" class="h-16 opacity-80 hover:opacity-100 transition duration-500" />
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="py-12 border-t border-white/5 text-center">
     <p class="text-gray-700 text-[10px] font-black uppercase tracking-[0.4em]">
       &copy; 2026 L'AUTO ELITE. TOUS DROITS RÉSERVÉS.
@@ -207,10 +187,6 @@
     window.addEventListener('scroll', () => {
       document.getElementById('header').classList.toggle('nav-shadow', window.scrollY > 20);
     });
-
-    const burger = document.getElementById('burger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    burger.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
     document.querySelectorAll('.faq-btn').forEach(btn => {
       btn.addEventListener('click', () => {
