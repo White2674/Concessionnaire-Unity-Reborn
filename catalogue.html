@@ -98,15 +98,15 @@
               <select id="categorySelect" class="w-full input-dark rounded-2xl p-5 text-sm font-bold force-caps tracking-widest cursor-pointer">
                   <option value="all">TOUTES CATÉGORIES</option>
                   <option value="Compacts">COMPACTS</option>
-                  <option value="Berlines">BERLINES</option>
-                  <option value="Coupés">COUPÉS</option>
+                  <option value="Berlines">COUPÉS</option>
+                  <option value="Coupés">SEDANS</option>
                   <option value="Muscles">MUSCLES</option>
-                  <option value="Sportive">SPORTIVE</option>
-                  <option value="Sportive Classique">SPORTIVE CLASSIQUE</option>
-                  <option value="SUV">SUV</option>
-                  <option value="Off-Road">OFF-ROAD</option>
-                  <option value="Super">SUPER</option>
-                  <option value="Vans">VANS</option>
+                  <option value="Sportive">SPORTS CLASSIQUES</option>
+                  <option value="Sportive Classique">SPORTIFS</option>
+                  <option value="SUV">SUPER</option>
+                  <option value="Off-Road">SUV</option>
+                  <option value="Super">OFFROAD</option>
+                  <option value="Vans">COMMERCIAUX</option>
               </select>
           </div>
 
@@ -141,11 +141,45 @@
   <script>
     // TES DONNÉES (À COMPLÉTER)
     const products = [
-      { id: 1, name: "Panto", price: 1550, category: "Compacts", image: "https://i.goopics.net/tm9fi3.png" },
-      { id: 2, name: "Kanjo", price: 2220, category: "Compacts", image: "https://i.goopics.net/jaj3bg.png" },
-      { id: 3, name: "T20", price: 2200000, category: "Super", image: "https://i.goopics.net/u2rl1l.png" },
-      { id: 4, name: "Dominator", price: 35000, category: "Muscles", image: "https://i.goopics.net/tm9fi3.png" }
-    ];
+  { id: 1, name: "Asea", price: 30000, category: "Sedans", image: "https://i.goopics.net/tm9fi3.png" },
+  { id: 2, name: "Asterope GZ", price: 290000, category: "Sedans", image: "https://i.goopics.net/jaj3bg.png" },
+  { id: 3, name: "Cheburek", price: 65000, category: "Sedans", image: "https://i.goopics.net/u2rl1l.png" },
+  { id: 4, name: "Cognoscenti", price: 110000, category: "Sedans", image: "https://i.goopics.net/tm9fi3.png" },
+  { id: 5, name: "Emperor", price: 37000, category: "Sedans", image: "https://i.goopics.net/z4a682.png" },
+  { id: 6, name: "FR36", price: 350000, category: "Sedans", image: "https://i.goopics.net/z4a682.png" },
+  { id: 7, name: "Fugitive", price: 24000, category: "Sedans", image: "https://i.goopics.net/70z2v8.png" },
+  { id: 8, name: "Glendale", price: 150000, category: "Sedans", image: "https://i.goopics.net/i6f88h.png" },
+  { id: 9, name: "Intruder", price: 15000, category: "Sedans", image: "https://i.goopics.net/o078yv.png" },
+  { id: 10, name: "Minivan", price: 16000, category: "Sedans", image: "https://i.goopics.net/g3m7h8.png" },
+  { id: 11, name: "Premier", price: 16000, category: "Sedans", image: "https://i.goopics.net/o2l7z8.png" },
+  { id: 12, name: "Primo Custom", price: 28000, category: "Sedans", image: "https://i.goopics.net/4n6m9x.png" },
+  { id: 13, name: "Regina", price: 10000, category: "Sedans", image: "https://i.goopics.net/w8z1m4.png" },
+  { id: 14, name: "Rhinehart", price: 600000, category: "Sedans", image: "https://i.goopics.net/v7k3m1.png" },
+  { id: 15, name: "Schafter", price: 160000, category: "Sedans", image: "https://i.goopics.net/l4m9z2.png" },
+  { id: 16, name: "Stafford", price: 800000, category: "Sedans", image: "https://i.goopics.net/q7m2v8.png" },
+  { id: 17, name: "Stretch", price: 180000, category: "Sedans", image: "https://i.goopics.net/k4n9x1.png" },
+  { id: 18, name: "Super Diamond", price: 260000, category: "Sedans", image: "https://i.goopics.net/m8z2v4.png" },
+  { id: 19, name: "Surge", price: 100000, category: "Sedans", image: "https://i.goopics.net/k4n9x1.png" },
+  { id: 20, name: "Tailgater", price: 60000, category: "Sedans", image: "https://i.goopics.net/k4n9x1.png" },
+  { id: 21, name: "Warrener", price: 8000, category: "Sedans", image: "https://i.goopics.net/k4n9x1.png" },
+  { id: 22, name: "Warrener HKR", price: 50000, category: "Sedans", image: "https://i.goopics.net/k4n9x1.png" },
+  { id: 23, name: "Washington", price: 18000, category: "Sedans", image: "https://i.goopics.net/k4n9x1.png" },
+  { id: 24, name: "Cinquemila", price: 1300000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+  { id: 25, name: "Cognoscenti Cabrio", price: 110000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+  { id: 26, name: "Exemplar", price: 96000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+  { id: 27, name: "F620", price: 64000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+  { id: 28, name: "Felon", price: 84000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+  { id: 29, name: "Felon GT", price: 90000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+  { id: 30, name: "Jackal", price: 84000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+  { id: 31, name: "Kanjo SJ", price: 150000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+  { id: 32, name: "Oracle", price: 26000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+  { id: 33, name: "Sentinel", price: 31000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+  { id: 34, name: "Sentinel XS", price: 64000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+  { id: 35, name: "Windsor", price: 190000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+  { id: 36, name: "Windsor Drop", price: 84000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+  { id: 37, name: "Zion", price: 72000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+  { id: 38, name: "Zion Cabrio", price: 25000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+];
 
     function renderProducts() {
       const grid = document.getElementById('productGrid');
