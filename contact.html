@@ -42,6 +42,10 @@
         filter: invert(1);
         cursor: pointer;
     }
+
+    /* --- AJOUT POUR TÉLÉPHONE --- */
+    #mobile-menu { transform: translateX(100%); transition: transform 0.4s ease; }
+    #mobile-menu.open { transform: translateX(0); }
   </style>
 </head>
 <body>
@@ -53,15 +57,13 @@
     <!-- LOGO + TEXTE CONCESSIONNAIRE -->
     <a href="index.html" class="flex items-center gap-4 group">
       <img src="https://i.goopics.net/srmg4w.png" alt="Logo" class="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
-      
-      <!-- Séparateur discret (optionnel, tu peux le supprimer si tu n'aimes pas) -->
       <div class="h-8 w-[1px] bg-white/10 hidden sm:block"></div>
-
       <div class="text-sm font-black uppercase tracking-[0.3em] leading-none">
         CONCESSIONNAIRE <span class="text-[#ff4d4d] block text-[10px] tracking-[0.5em] mt-1">AUTOMOBILE</span>
       </div>
     </a>
 
+    <!-- NAV DESKTOP -->
     <nav class="hidden md:flex items-center gap-8 text-[11px] font-black uppercase tracking-[0.2em] text-gray-400">
       <ul class="flex items-center gap-8">
         <li><a href="index.html" class="hover:text-white transition">Accueil</a></li>
@@ -74,8 +76,30 @@
         📝 Candidature
       </a>
     </nav>
+
+    <!-- --- AJOUT BOUTON BURGER (MOBILE) --- -->
+    <button id="burger-btn" class="md:hidden text-white">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+    </button>
   </nav>
 </header>
+
+<!-- --- AJOUT MENU LATÉRAL MOBILE --- -->
+<div id="mobile-menu" class="fixed inset-y-0 right-0 w-[280px] bg-[#0d0d0d] z-[60] border-l border-white/10 p-10 flex flex-col gap-8 md:hidden">
+  <button id="close-btn" class="self-end text-white">
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+  </button>
+  <ul class="flex flex-col gap-6 text-sm font-black uppercase tracking-widest text-gray-400">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="catalogue.html">Catalogue</a></li>
+    <li><a href="avis.html">Avis Clients</a></li>
+    <li><a href="equipe.html">L'Équipe</a></li>
+    <li><a href="contact.html" class="text-white">Contact</a></li>
+  </ul>
+  <a href="candidature.html" class="bg-[#ff4d4d] text-center text-white py-4 rounded-xl font-black uppercase text-[10px] tracking-widest">
+    📝 Candidature
+  </a>
+</div>
 
   <!-- HERO SECTION -->
   <section class="header-gradient pt-56 pb-20 px-6 text-center">
@@ -144,6 +168,15 @@
   </footer>
 
   <script>
+    // SCRIPT MENU MOBILE
+    const burgerBtn = document.getElementById('burger-btn');
+    const closeBtn = document.getElementById('close-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    burgerBtn.addEventListener('click', () => { mobileMenu.classList.add('open'); });
+    closeBtn.addEventListener('click', () => { mobileMenu.classList.remove('open'); });
+
+    // SCRIPT FORMULAIRE DISCORD
     const form = document.getElementById('appointmentForm');
     const messageEl = document.getElementById('formMessage');
     const submitBtn = document.getElementById('submitBtn');
@@ -151,16 +184,15 @@
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       
-      // Animation bouton pendant l'envoi
       submitBtn.disabled = true;
       submitBtn.innerText = "ENVOI EN COURS...";
 
       const formData = new FormData(form);
       const payload = {
-        content: "<@&1498383326174515339>", // Ping du rôle
+        content: "<@&1498383326174515339>",
         embeds: [{
           title: "📅 __NOUVELLE DEMANDE DE RENDEZ-VOUS__",
-          color: 0xff4d4d, // Rouge Elite
+          color: 0xff4d4d,
           thumbnail: { url: "https://i.goopics.net/srmg4w.png" },
           fields: [
             { name: "👤 __CLIENT__", value: formData.get('Nom') || "NON SPÉCIFIÉ", inline: true },
