@@ -10,21 +10,17 @@
   <style>
     body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0d0d0d; color: #ffffff; overflow-x: hidden; }
     
-    /* HEADER IDENTIQUE À TON INDEX ET AVIS */
     .nav-permanent { background: #0d0d0d; border-bottom: 1px solid rgba(255,255,255,0.05); }
 
-    /* STYLE HEADER GRADIENT */
     .header-gradient {
         background: linear-gradient(180deg, rgba(13,13,13,0) 0%, #0d0d0d 100%), 
                     url('https://i.goopics.net/a36q50.png');
         background-size: cover; background-position: center;
     }
 
-    /* CARTES VÉHICULES STYLE "REVIEW-CARD" */
     .product-card { background: #1a1a1a; border: 1px solid #252525; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; }
     .product-card:hover { border-color: #ff4d4d; transform: translateY(-8px); box-shadow: 0 20px 40px rgba(255, 77, 77, 0.05); }
     
-    /* PANNEAU DE FILTRES STYLE "STATS-PANEL" */
     .filter-panel { background: #151515; border: 1px solid #222; }
 
     .force-caps { text-transform: uppercase; }
@@ -33,29 +29,33 @@
 
     .category-badge { background: rgba(255, 77, 77, 0.1); color: #ff4d4d; border: 1px solid rgba(255, 77, 77, 0.2); }
     
-    /* Style spécifique pour les flèches des selects */
     select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23ff4d4d'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1.5rem center; background-size: 1rem; }
+
+    /* --- AJOUTS MOBILE --- */
+    @media (max-width: 768px) {
+        .header-gradient h1 { font-size: 3.5rem !important; line-height: 1.1; }
+        .filter-panel { padding: 1.5rem !important; border-radius: 2rem !important; margin: 0 10px; }
+        #productGrid { grid-template-columns: 1fr !important; gap: 1.5rem; }
+        .mobile-nav-overlay { display: none; }
+        .mobile-nav-overlay.active { display: flex; }
+    }
   </style>
 </head>
 <body>
 
-<!-- HEADER NOIR FIXE -->
+<!-- HEADER AVEC MENU MOBILE -->
 <header id="header" class="fixed top-0 left-0 w-full z-50 nav-permanent">
   <nav class="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 md:px-12">
-    
-    <!-- LOGO + TEXTE CONCESSIONNAIRE -->
     <a href="index.html" class="flex items-center gap-4 group">
       <img src="https://i.goopics.net/srmg4w.png" alt="Logo" class="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
-      
-      <!-- Séparateur discret (optionnel, tu peux le supprimer si tu n'aimes pas) -->
       <div class="h-8 w-[1px] bg-white/10 hidden sm:block"></div>
-
       <div class="text-sm font-black uppercase tracking-[0.3em] leading-none">
         CONCESSIONNAIRE <span class="text-[#ff4d4d] block text-[10px] tracking-[0.5em] mt-1">AUTOMOBILE</span>
       </div>
     </a>
 
-    <nav class="hidden md:flex items-center gap-8 text-[11px] font-black uppercase tracking-[0.2em] text-gray-400">
+    <!-- Menu Desktop -->
+    <div class="hidden lg:flex items-center gap-8 text-[11px] font-black uppercase tracking-[0.2em] text-gray-400">
       <ul class="flex items-center gap-8">
         <li><a href="index.html" class="hover:text-white transition">Accueil</a></li>
         <li><a href="catalogue.html" class="text-white border-b-2 border-[#ff4d4d] pb-1">Catalogue</a></li>
@@ -63,12 +63,26 @@
         <li><a href="equipe.html" class="hover:text-white transition">L'Équipe</a></li>
         <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
       </ul>
-      <a href="candidature.html" class="bg-[#ff4d4d] text-white py-3 px-6 rounded-xl hover:scale-105 transition shadow-lg shadow-red-900/20">
-        📝 Candidature
-      </a>
-    </nav>
+      <a href="candidature.html" class="bg-[#ff4d4d] text-white py-3 px-6 rounded-xl hover:scale-105 transition shadow-lg shadow-red-900/20">📝 Candidature</a>
+    </div>
+
+    <!-- Bouton Hamburger Mobile -->
+    <button id="openMobileBtn" class="lg:hidden text-[#ff4d4d]">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+    </button>
   </nav>
 </header>
+
+<!-- Overlay Menu Mobile -->
+<div id="mobileMenu" class="fixed inset-0 bg-black/f8 z-[100] hidden flex-col items-center justify-center gap-8 text-xl font-black uppercase tracking-widest transition-all">
+    <button id="closeMobileBtn" class="absolute top-8 right-8 text-[#ff4d4d] text-sm">FERMER ✕</button>
+    <a href="index.html" class="hover:text-[#ff4d4d]">Accueil</a>
+    <a href="catalogue.html" class="text-[#ff4d4d]">Catalogue</a>
+    <a href="avis.html">Avis</a>
+    <a href="equipe.html">L'Équipe</a>
+    <a href="contact.html">Contact</a>
+    <a href="candidature.html" class="bg-[#ff4d4d] px-8 py-4 rounded-2xl">📝 Candidature</a>
+</div>
 
   <!-- TITRE PAGE -->
   <section class="header-gradient pt-56 pb-28 px-6 text-center">
@@ -76,7 +90,7 @@
       <p class="text-gray-400 text-lg md:text-xl font-black uppercase tracking-[0.6em] opacity-80">EXCELLENCE ET PERFORMANCE AUTOMOBILE</p>
   </section>
 
-  <!-- FILTRES (STYLE STATS-PANEL) -->
+  <!-- FILTRES -->
   <section class="max-w-6xl mx-auto px-6 -mt-16 relative z-10">
       <div class="filter-panel rounded-[3rem] p-10 shadow-2xl">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
@@ -106,7 +120,7 @@
                   <option value="Super">SUPER</option>
                   <option value="SUV">SUV</option>
                   <option value="Offroad">OFFROAD</option>
-                 <option value="Vans">VANS</option>
+                  <option value="Vans">VANS</option>
                   <option value="Commerciaux">COMMERCIAUX</option>
               </select>
           </div>
@@ -140,7 +154,7 @@
   </footer>
 
   <script>
-    // TES DONNÉES (À COMPLÉTER)
+    // COLLE TES 533 LIGNES DE PRODUITS ICI
     const products = [
   { id: 1, name: "Asea", price: 30000, category: "Sedans", image: "https://i.goopics.net/tm9fi3.png" },
   { id: 2, name: "Asterope GZ", price: 290000, category: "Sedans", image: "https://i.goopics.net/jaj3bg.png" },
@@ -465,7 +479,6 @@
       const sort = document.getElementById('sortSelect').value;
       const category = document.getElementById('categorySelect').value;
       
-      // MODIF : Gestion prix indépendante (si vide = 0 ou Infinity)
       const minInput = document.getElementById('minPrice').value;
       const maxInput = document.getElementById('maxPrice').value;
       const minP = minInput !== "" ? parseFloat(minInput) : 0;
@@ -478,7 +491,6 @@
         return matchesSearch && matchesCat && matchesPrice;
       });
 
-      // TRI
       if (sort === 'name-asc') filtered.sort((a,b) => a.name.localeCompare(b.name));
       else if (sort === 'name-desc') filtered.sort((a,b) => b.name.localeCompare(a.name));
       else if (sort === 'price-asc') filtered.sort((a,b) => a.price - b.price);
@@ -493,7 +505,6 @@
 
       grid.innerHTML = filtered.map(p => `
           <article class="product-card rounded-[2.5rem] p-8 flex flex-col items-center text-center">
-              <!-- MODIF : Badge catégorie agrandi -->
               <div class="category-badge text-[11px] font-black px-6 py-2 rounded-full uppercase tracking-widest mb-6">
                 ${p.category}
               </div>
@@ -504,7 +515,6 @@
               <div class="h-px w-10 bg-[#ff4d4d] opacity-50 mb-6"></div>
               <div class="mt-auto">
                   <span class="text-gray-500 text-[10px] font-black uppercase tracking-[0.3em] block mb-1">Prix de vente</span>
-                  <!-- MODIF : $ de la même taille que le prix -->
                   <span class="text-3xl font-black text-white italic">
                     ${p.price.toLocaleString()} <span class="text-[#ff4d4d] not-italic text-3xl">$</span>
                   </span>
@@ -513,7 +523,22 @@
       `).join('');
     }
 
-    // LISTENERS
+    // GESTION MENU MOBILE
+    const openBtn = document.getElementById('openMobileBtn');
+    const closeBtn = document.getElementById('closeMobileBtn');
+    const menu = document.getElementById('mobileMenu');
+
+    openBtn.addEventListener('click', () => {
+        menu.classList.remove('hidden');
+        menu.classList.add('flex');
+    });
+
+    closeBtn.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        menu.classList.remove('flex');
+    });
+
+    // LISTENERS FILTRES
     ['searchInput', 'sortSelect', 'categorySelect', 'minPrice', 'maxPrice'].forEach(id => {
       document.getElementById(id).addEventListener('input', renderProducts);
     });
@@ -526,7 +551,6 @@
         renderProducts();
     });
 
-    // INIT
     renderProducts();
   </script>
 </body>
