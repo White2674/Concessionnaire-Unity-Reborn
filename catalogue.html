@@ -10,21 +10,17 @@
   <style>
     body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0d0d0d; color: #ffffff; overflow-x: hidden; }
     
-    /* HEADER IDENTIQUE À TON INDEX ET AVIS */
     .nav-permanent { background: #0d0d0d; border-bottom: 1px solid rgba(255,255,255,0.05); }
 
-    /* STYLE HEADER GRADIENT */
     .header-gradient {
         background: linear-gradient(180deg, rgba(13,13,13,0) 0%, #0d0d0d 100%), 
                     url('https://i.goopics.net/a36q50.png');
         background-size: cover; background-position: center;
     }
 
-    /* CARTES VÉHICULES STYLE "REVIEW-CARD" */
     .product-card { background: #1a1a1a; border: 1px solid #252525; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; }
     .product-card:hover { border-color: #ff4d4d; transform: translateY(-8px); box-shadow: 0 20px 40px rgba(255, 77, 77, 0.05); }
     
-    /* PANNEAU DE FILTRES STYLE "STATS-PANEL" */
     .filter-panel { background: #151515; border: 1px solid #222; }
 
     .force-caps { text-transform: uppercase; }
@@ -33,28 +29,26 @@
 
     .category-badge { background: rgba(255, 77, 77, 0.1); color: #ff4d4d; border: 1px solid rgba(255, 77, 77, 0.2); }
     
-    /* Style spécifique pour les flèches des selects */
     select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23ff4d4d'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1.5rem center; background-size: 1rem; }
+    
+    /* Correction pour mobile : éviter que le texte déborde */
+    h1 { word-break: break-word; }
   </style>
 </head>
 <body>
 
-<!-- HEADER NOIR FIXE -->
+<!-- HEADER -->
 <header id="header" class="fixed top-0 left-0 w-full z-50 nav-permanent">
   <nav class="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 md:px-12">
-    
-    <!-- LOGO + TEXTE CONCESSIONNAIRE -->
     <a href="index.html" class="flex items-center gap-4 group">
-      <img src="https://i.goopics.net/srmg4w.png" alt="Logo" class="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
-      
-      <!-- Séparateur discret (optionnel, tu peux le supprimer si tu n'aimes pas) -->
+      <img src="https://i.goopics.net/srmg4w.png" alt="Logo" class="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
       <div class="h-8 w-[1px] bg-white/10 hidden sm:block"></div>
-
-      <div class="text-sm font-black uppercase tracking-[0.3em] leading-none">
-        CONCESSIONNAIRE <span class="text-[#ff4d4d] block text-[10px] tracking-[0.5em] mt-1">AUTOMOBILE</span>
+      <div class="text-[10px] md:text-sm font-black uppercase tracking-[0.2em] md:tracking-[0.3em] leading-none">
+        CONCESSIONNAIRE <span class="text-[#ff4d4d] block text-[8px] md:text-[10px] tracking-[0.3em] md:tracking-[0.5em] mt-1">AUTOMOBILE</span>
       </div>
     </a>
 
+    <!-- Menu desktop -->
     <nav class="hidden md:flex items-center gap-8 text-[11px] font-black uppercase tracking-[0.2em] text-gray-400">
       <ul class="flex items-center gap-8">
         <li><a href="index.html" class="hover:text-white transition">Accueil</a></li>
@@ -70,32 +64,32 @@
   </nav>
 </header>
 
-  <!-- TITRE PAGE -->
-  <section class="header-gradient pt-56 pb-28 px-6 text-center">
-      <h1 class="text-[#ff4d4d] text-6xl md:text-9xl font-black uppercase tracking-tighter mb-6 italic">NOTRE <span class="text-white">CATALOGUE</span></h1>
-      <p class="text-gray-400 text-lg md:text-xl font-black uppercase tracking-[0.6em] opacity-80">EXCELLENCE ET PERFORMANCE AUTOMOBILE</p>
+  <!-- TITRE PAGE (Adapté mobile) -->
+  <section class="header-gradient pt-40 pb-20 md:pt-56 md:pb-28 px-6 text-center">
+      <h1 class="text-[#ff4d4d] text-5xl md:text-9xl font-black uppercase tracking-tighter mb-6 italic leading-none">NOTRE <span class="text-white">CATALOGUE</span></h1>
+      <p class="text-gray-400 text-xs md:text-xl font-black uppercase tracking-[0.3em] md:tracking-[0.6em] opacity-80">EXCELLENCE ET PERFORMANCE AUTOMOBILE</p>
   </section>
 
-  <!-- FILTRES (STYLE STATS-PANEL) -->
-  <section class="max-w-6xl mx-auto px-6 -mt-16 relative z-10">
-      <div class="filter-panel rounded-[3rem] p-10 shadow-2xl">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+  <!-- FILTRES -->
+  <section class="max-w-6xl mx-auto px-4 md:px-6 -mt-10 md:-mt-16 relative z-10">
+      <div class="filter-panel rounded-[2rem] md:rounded-[3rem] p-6 md:p-10 shadow-2xl">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8">
               <div class="relative">
                 <input id="searchInput" type="text" placeholder="RECHERCHER UN MODÈLE..." 
-                       class="w-full input-dark rounded-2xl p-5 text-sm font-bold force-caps tracking-widest pl-14">
-                <div class="absolute left-5 top-5 opacity-30 text-[#ff4d4d]">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                       class="w-full input-dark rounded-2xl p-4 md:p-5 text-sm font-bold force-caps tracking-widest pl-12 md:pl-14">
+                <div class="absolute left-4 md:left-5 top-4 md:top-5 opacity-30 text-[#ff4d4d]">
+                    <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                 </div>
               </div>
 
-              <select id="sortSelect" class="w-full input-dark rounded-2xl p-5 text-sm font-bold force-caps tracking-widest cursor-pointer">
+              <select id="sortSelect" class="w-full input-dark rounded-2xl p-4 md:p-5 text-sm font-bold force-caps tracking-widest cursor-pointer">
                   <option value="name-asc">TRI : NOM (A-Z)</option>
                   <option value="name-desc">TRI : NOM (Z-A)</option>
                   <option value="price-asc">TRI : PRIX CROISSANT</option>
                   <option value="price-desc">TRI : PRIX DÉCROISSANT</option>
               </select>
 
-              <select id="categorySelect" class="w-full input-dark rounded-2xl p-5 text-sm font-bold force-caps tracking-widest cursor-pointer">
+              <select id="categorySelect" class="w-full input-dark rounded-2xl p-4 md:p-5 text-sm font-bold force-caps tracking-widest cursor-pointer">
                   <option value="all">TOUTES CATÉGORIES</option>
                   <option value="Compacts">COMPACTS</option>
                   <option value="Coupés">COUPÉS</option>
@@ -106,21 +100,21 @@
                   <option value="Super">SUPER</option>
                   <option value="SUV">SUV</option>
                   <option value="Offroad">OFFROAD</option>
-                 <option value="Vans">VANS</option>
+                  <option value="Vans">VANS</option>
                   <option value="Commerciaux">COMMERCIAUX</option>
               </select>
           </div>
 
-          <div class="flex flex-col md:flex-row items-center gap-6 pt-8 border-t border-white/5">
+          <div class="flex flex-col md:flex-row items-center gap-4 md:gap-6 pt-6 md:pt-8 border-t border-white/5">
               <div class="flex items-center gap-4 w-full md:w-auto">
-                  <span class="text-[10px] font-black text-gray-500 tracking-[0.3em] uppercase">Prix Min</span>
-                  <input id="minPrice" type="number" placeholder="0" class="flex-1 md:w-32 input-dark rounded-xl p-3 text-sm font-bold">
+                  <span class="text-[9px] md:text-[10px] font-black text-gray-500 tracking-[0.3em] uppercase whitespace-nowrap">Prix Min</span>
+                  <input id="minPrice" type="number" placeholder="0" class="w-full md:w-32 input-dark rounded-xl p-3 text-sm font-bold">
               </div>
               <div class="flex items-center gap-4 w-full md:w-auto">
-                  <span class="text-[10px] font-black text-gray-500 tracking-[0.3em] uppercase">Prix Max</span>
-                  <input id="maxPrice" type="number" placeholder="MAX" class="flex-1 md:w-32 input-dark rounded-xl p-3 text-sm font-bold">
+                  <span class="text-[9px] md:text-[10px] font-black text-gray-500 tracking-[0.3em] uppercase whitespace-nowrap">Prix Max</span>
+                  <input id="maxPrice" type="number" placeholder="MAX" class="w-full md:w-32 input-dark rounded-xl p-3 text-sm font-bold">
               </div>
-              <button id="resetBtn" class="md:ml-auto text-[#ff4d4d] text-[10px] font-black uppercase tracking-[0.3em] hover:text-white transition">
+              <button id="resetBtn" class="w-full md:w-auto md:ml-auto text-[#ff4d4d] text-[10px] font-black uppercase tracking-[0.3em] hover:text-white transition py-2">
                   Réinitialiser les filtres
               </button>
           </div>
@@ -128,334 +122,333 @@
   </section>
 
   <!-- GRILLE CATALOGUE -->
-  <main class="max-w-7xl mx-auto px-6 py-24">
-      <div id="productGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+  <main class="max-w-7xl mx-auto px-6 py-16 md:py-24">
+      <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
           <!-- Injecté par JS -->
       </div>
-      <div id="noResults" class="hidden text-center py-20 opacity-20 font-black text-3xl uppercase tracking-tighter">AUCUN VÉHICULE TROUVÉ</div>
+      <div id="noResults" class="hidden text-center py-20 opacity-20 font-black text-2xl md:text-3xl uppercase tracking-tighter">AUCUN VÉHICULE TROUVÉ</div>
   </main>
 
-  <footer class="text-center py-12 text-gray-600 text-[10px] font-black uppercase tracking-[0.5em] border-t border-white/5">
-      &copy; 2026 CONCESSIONNAIRE AUTOMOBILE - TOUT DROITS RÉSERVÉS
+  <footer class="text-center py-12 text-gray-600 text-[8px] md:text-[10px] font-black uppercase tracking-[0.3em] md:tracking-[0.5em] border-t border-white/5 px-4">
+      &copy; 2026 CONCESSIONNAIRE AUTOMOBILE - TOUS DROITS RÉSERVÉS
   </footer>
 
   <script>
-    // TES DONNÉES (À COMPLÉTER)
     const products = [
-  { id: 1, name: "Asea", price: 30000, category: "Sedans", image: "https://i.goopics.net/tm9fi3.png" },
-  { id: 2, name: "Asterope GZ", price: 290000, category: "Sedans", image: "https://i.goopics.net/jaj3bg.png" },
-  { id: 3, name: "Cheburek", price: 65000, category: "Sedans", image: "https://i.goopics.net/u2rl1l.png" },
-  { id: 4, name: "Cognoscenti", price: 110000, category: "Sedans", image: "https://i.goopics.net/tm9fi3.png" },
-  { id: 5, name: "Emperor", price: 37000, category: "Sedans", image: "https://i.goopics.net/z4a682.png" },
-  { id: 6, name: "FR36", price: 350000, category: "Sedans", image: "https://i.goopics.net/z4a682.png" },
-  { id: 7, name: "Fugitive", price: 24000, category: "Sedans", image: "https://i.goopics.net/70z2v8.png" },
-  { id: 8, name: "Glendale", price: 150000, category: "Sedans", image: "https://i.goopics.net/i6f88h.png" },
-  { id: 9, name: "Intruder", price: 15000, category: "Sedans", image: "https://i.goopics.net/o078yv.png" },
-  { id: 10, name: "Minivan", price: 16000, category: "Sedans", image: "https://i.goopics.net/g3m7h8.png" },
-  { id: 11, name: "Premier", price: 16000, category: "Sedans", image: "https://i.goopics.net/o2l7z8.png" },
-  { id: 12, name: "Primo Custom", price: 28000, category: "Sedans", image: "https://i.goopics.net/4n6m9x.png" },
-  { id: 13, name: "Regina", price: 10000, category: "Sedans", image: "https://i.goopics.net/w8z1m4.png" },
-  { id: 14, name: "Rhinehart", price: 600000, category: "Sedans", image: "https://i.goopics.net/v7k3m1.png" },
-  { id: 15, name: "Schafter", price: 160000, category: "Sedans", image: "https://i.goopics.net/l4m9z2.png" },
-  { id: 16, name: "Stafford", price: 800000, category: "Sedans", image: "https://i.goopics.net/q7m2v8.png" },
-  { id: 17, name: "Stretch", price: 180000, category: "Sedans", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 18, name: "Super Diamond", price: 260000, category: "Sedans", image: "https://i.goopics.net/m8z2v4.png" },
-  { id: 19, name: "Surge", price: 100000, category: "Sedans", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 20, name: "Tailgater", price: 60000, category: "Sedans", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 21, name: "Warrener", price: 8000, category: "Sedans", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 22, name: "Warrener HKR", price: 50000, category: "Sedans", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 23, name: "Washington", price: 18000, category: "Sedans", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 24, name: "Cinquemila", price: 1300000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 25, name: "Cognoscenti Cabrio", price: 110000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 26, name: "Exemplar", price: 96000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 27, name: "F620", price: 64000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 28, name: "Felon", price: 84000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 29, name: "Felon GT", price: 90000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 30, name: "Jackal", price: 84000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 31, name: "Kanjo SJ", price: 150000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 32, name: "Oracle", price: 26000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 33, name: "Sentinel", price: 31000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 34, name: "Sentinel XS", price: 64000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 35, name: "Windsor", price: 190000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 36, name: "Windsor Drop", price: 84000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 37, name: "Zion", price: 72000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 38, name: "Zion Cabrio", price: 25000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 39, name: "811", price: 1400000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 40, name: "Adder", price: 1000000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 41, name: "Autarch", price: 1800000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 42, name: "Banshee 900R", price: 440000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 43, name: "Bullet", price: 180000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 44, name: "Cheetah", price: 440000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 45, name: "Comet Rétro Custom", price: 900000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 46, name: "Coquette D10", price: 1300000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 47, name: "Corsita", price: 1700000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 48, name: "Cyclone", price: 1900000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 49, name: "Deveste Eight", price: 2800000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 50, name: "ETR1", price: 440000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 51, name: "Elegy Rétro Custom", price: 600000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 52, name: "Emerus", price: 1700000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 53, name: "Entity MT", price: 2500000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 54, name: "Entity XF", price: 700000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 55, name: "Entity XXR", price: 1700000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 56, name: "FMJ", price: 1500000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 57, name: "Furia", price: 2800000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 58, name: "GP1", price: 3700000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 59, name: "Ignus", price: 4000000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 60, name: "Infernus", price: 360000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 61, name: "Itali GTB", price: 2500000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 62, name: "Itali GTB Custom", price: 3000000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 63, name: "Itali RSX", price: 4000000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 64, name: "Jester Classique", price: 600000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 65, name: "Krieger", price: 2400000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 66, name: "LM87", price: 4400000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 67, name: "Nero Custom", price: 2400000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 68, name: "Osiris", price: 380000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 69, name: "Penetrator", price: 3500000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 70, name: "RE-7B", price: 650000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 71, name: "Reaper", price: 300000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 72, name: "S80RR", price: 4000000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 73, name: "SC1", price: 1600000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 74, name: "Schlagen GT", price: 1700000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 75, name: "Sultan RS", price: 600000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 76, name: "T20", price: 1000000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 77, name: "Taipan", price: 2600000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 78, name: "Tezeract", price: 4800000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 79, name: "Thrax", price: 4800000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 80, name: "Tigon", price: 5000000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 81, name: "Torero XO", price: 1600000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 82, name: "Turismo R", price: 680000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 83, name: "Turismo Classique", price: 100000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 84, name: "Tyrus", price: 1200000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 85, name: "Vacca", price: 240000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 86, name: "Vagner", price: 2000000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 87, name: "Visione", price: 4500000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 88, name: "Voltic", price: 1800000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 89, name: "X80 Proto", price: 5000000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 90, name: "XA-21", price: 2000000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 91, name: "Zeno", price: 770000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 92, name: "Zentorno", price: 1400000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 93, name: "Zorrusso", price: 800000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 94, name: "Asbo", price: 90000, category: "Compacts", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 95, name: "Blista", price: 20000, category: "Compacts", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 96, name: "Blista Kanjo", price: 40000, category: "Compacts", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 97, name: "Brioso 300 Large", price: 100000, category: "Compacts", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 98, name: "Brioso R/A", price: 14000, category: "Compacts", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 99, name: "Dilettante", price: 25000, category: "Compacts", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 100, name: "Issi", price: 10000, category: "Compacts", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 101, name: "Issi Classique", price: 16000, category: "Compacts", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 102, name: "Panto", price: 4000, category: "Compacts", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 103, name: "Prairie", price: 12000, category: "Compacts", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 104, name: "Previon", price: 80000, category: "Compacts", image: "https://i.goopics.net/k4n9x1.png" },
- { id: 105, name: "Benson", price: 600000, category: "Commerciaux", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 106, name: "Biff", price: 200000, category: "Commerciaux", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 107, name: "Camion de Ferailleur", price: 400000, category: "Commerciaux", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 108, name: "Fieldmaster", price: 400000, category: "Commerciaux", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 109, name: "Mule", price: 240000, category: "Commerciaux", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 110, name: "Packer", price: 800000, category: "Commerciaux", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 111, name: "Pounder", price: 1000000, category: "Commerciaux", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 112, name: "Rubble", price: 180000, category: "Commerciaux", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 113, name: "Tipper", price: 180000, category: "Commerciaux", image: "https://i.goopics.net/k4n9x1.png" },
- { id: 114, name: "4x4 Caracara", price: 700000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 115, name: "Bifta", price: 60000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 116, name: "Bison", price: 64000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 117, name: "Bobcat XL", price: 50000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 118, name: "Boor", price: 200000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 119, name: "Brawler", price: 400000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 120, name: "Buggy Raid", price: 160000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 121, name: "Dubsta 6x6", price: 400000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 122, name: "Everon", price: 1100000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 123, name: "Freecrawler", price: 500000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 124, name: "Guardian", price: 260000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 125, name: "Kalahari", price: 13000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 126, name: "Rancher XL", price: 70000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 127, name: "Riata", price: 760000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 128, name: "Sandking XL", price: 110000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 129, name: "Surfer", price: 24000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 130, name: "Trophy Truck", price: 120000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 131, name: "Vagrant", price: 50000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 132, name: "10 Large", price: 400000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 133, name: "8F Drafter", price: 500000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 134, name: "9F", price: 130000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 135, name: "9F Cabrio", price: 160000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 136, name: "Alpha", price: 210000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 137, name: "Banshee", price: 140000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 138, name: "Bestia GTS", price: 600000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 139, name: "Buffalo", price: 32000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 140, name: "Buffalo S", price: 52000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 141, name: "Calico GTF", price: 510000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 142, name: "Carbonizzare", price: 210000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 143, name: "Comet", price: 700000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 144, name: "Comet S2", price: 1300000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 145, name: "Comet S2 Cabrio", price: 1350000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 146, name: "Comet SR", price: 1100000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 147, name: "Coquette", price: 130000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 148, name: "Cypher", price: 900000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 149, name: "Elegy RH8", price: 77000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 150, name: "Euros", price: 620000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 151, name: "Feltzer", price: 124000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 152, name: "Flash GT", price: 900000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 153, name: "Furore GT", price: 350000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 154, name: "Fusilade", price: 80000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 155, name: "Futo", price: 70000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 156, name: "GB200", price: 620000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 157, name: "Growler", price: 1100000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 158, name: "Imorgon", price: 1100000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 159, name: "Issi Rallye", price: 420000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 160, name: "Issi Sport", price: 34000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 161, name: "Jester", price: 500000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 162, name: "Jester Course", price: 270000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 163, name: "Jester RR", price: 500000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 164, name: "Jugular", price: 440000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 165, name: "Khamelion", price: 150000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 166, name: "Komoda", price: 1500000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 167, name: "Kuruma", price: 230000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 168, name: "Locust", price: 1300000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 169, name: "Lynx", price: 80000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 170, name: "Mamba", price: 180000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 171, name: "Massacro", price: 130000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 172, name: "Massacro Course", price: 260000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 173, name: "Neo", price: 960000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 174, name: "Neon", price: 1200000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 175, name: "Omnis", price: 240000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 176, name: "Panthere", price: 620000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 177, name: "Paragon R", price: 800000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 178, name: "Pariah", price: 2840000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 179, name: "Penumbra", price: 56000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 180, name: "Penumbra FF", price: 88000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 181, name: "RT3000", price: 67000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 182, name: "Raiden", price: 2750000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 183, name: "Rapid GT", price: 150000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 184, name: "Raptor", price: 60000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 185, name: "Ruston", price: 1500000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 186, name: "SM722", price: 540000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 187, name: "Schafter LWB", price: 80000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 188, name: "Schafter V12", price: 380000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 189, name: "Sentinel Classique", price: 23000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 190, name: "Sentinel Classique Large", price: 50000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 191, name: "Seven-70", price: 79000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 192, name: "Specter", price: 1000000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 193, name: "Streiter", price: 500000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },    
-  { id: 194, name: "Sugoi", price: 180000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },    
-  { id: 195, name: "Sultan", price: 104000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },    
-  { id: 196, name: "Sultan RS Classique", price: 800000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },    
-  { id: 197, name: "Sultan Classique", price: 300000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },    
-  { id: 198, name: "Surano", price: 100000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },    
-  { id: 199, name: "Tailgater S", price: 300000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },    
-  { id: 200, name: "Tampa Drift", price: 160000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },    
-  { id: 201, name: "Tropos Rallye", price: 350000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },    
-  { id: 202, name: "V-STR", price: 1100000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },    
-  { id: 203, name: "Vectre", price: 74000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },    
-  { id: 204, name: "Verlierer", price: 140000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },    
-  { id: 205, name: "ZR350", price: 130000, category: "Sportif", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 206, name: "Astron", price: 1100000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 207, name: "Baller", price: 100000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 208, name: "Baller LE", price: 150000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 209, name: "Baller ST-D", price: 1500000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 210, name: "Cavalcade", price: 80000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 211, name: "Contender", price: 150000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 212, name: "Dubsta", price: 70000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 213, name: "Dubsta", price: 120000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 214, name: "FQ2", price: 25000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 215, name: "Granger", price: 100000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 216, name: "Gresley", price: 60000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 217, name: "Huntley S", price: 80000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 218, name: "I-Wagen", price: 250000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 219, name: "Landstalker", price: 70000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 220, name: "Landstalker XL", price: 240000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 221, name: "Mesa", price: 32000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 222, name: "Mesa", price: 65000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 223, name: "Novak", price: 300000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 224, name: "Patriot", price: 70000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 225, name: "Radius", price: 58000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 226, name: "Rebla GTS", price: 500000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 227, name: "Rocoto", price: 66000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 228, name: "Seminole", price: 300000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 229, name: "Toros", price: 990000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 230, name: "Vivanite", price: 125000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 231, name: "XLS", price: 42000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
-{ id: 232, name: "Blade", price: 140000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 233, name: "Broadway", price: 150000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 234, name: "Buccaneer", price: 36000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 235, name: "Buccaneer Custom", price: 40000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 236, name: "Chino", price: 130000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 237, name: "Chino Custom", price: 156000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 238, name: "Clique", price: 160000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 239, name: "Coquette BlackFin", price: 500000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 240, name: "Deviant", price: 300000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 241, name: "Dominator", price: 65000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 242, name: "Dominator ASP", price: 200000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 243, name: "Dominator GT", price: 900000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 244, name: "Dominator GTT", price: 250000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 245, name: "Dominator GTX", price: 200000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 246, name: "Dukes", price: 56000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 247, name: "Ellie", price: 190000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 248, name: "Faction", price: 40000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 249, name: "Faction Custom", price: 60000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 250, name: "Faction Custom Donk", price: 256000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 251, name: "Gauntlet", price: 60000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 252, name: "Gauntlet Hellfire", price: 500000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 253, name: "Gauntlet Classique", price: 300000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 254, name: "Hermes", price: 1070000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 255, name: "Hotknife", price: 250000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 256, name: "Hustler", price: 1060000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 257, name: "Impaler", price: 300000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 258, name: "Nightshade", price: 220000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 259, name: "Peyote Gasser", price: 1070000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 260, name: "Phoenix", price: 25000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 261, name: "Picador", price: 36000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 262, name: "Ruiner ZZ-8", price: 100000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 263, name: "Sabre Turbo", price: 40000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 264, name: "Sabre Turbo Custom", price: 50000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 265, name: "Slamvan Custom", price: 23000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 266, name: "Tahoma Coupé", price: 800000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 267, name: "Tampa", price: 32000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 268, name: "Tulip M-100", price: 200000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 269, name: "Vamos", price: 80000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 270, name: "Vigero", price: 25000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 271, name: "Vigero ZX", price: 200000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 272, name: "Vigero ZX Décapotable", price: 1300000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 273, name: "Virgo", price: 28000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 274, name: "Virgo Classique Custom", price: 70000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 275, name: "Voodoo Custom", price: 14400, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 276, name: "Yosemite", price: 240000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 277, name: "Yosemite Drift", price: 200000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 278, name: "190Z", price: 180000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 279, name: "Casco", price: 700000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 280, name: "Coquette Classique", price: 300000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 281, name: "Dynasty", price: 350000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 282, name: "Franken Stange", price: 660000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 283, name: "GT500", price: 1000000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 284, name: "Hotring Sabre", price: 130000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 285, name: "La Coureuse", price: 190000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 286, name: "Manana", price: 25600, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 287, name: "Monroe", price: 110000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 288, name: "Peyote", price: 56000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 289, name: "Pigalle", price: 40000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 290, name: "Rapid GT Classique", price: 177000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 291, name: "Retinue", price: 123000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 292, name: "Retinue MK II", price: 70000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 293, name: "Roosevelt", price: 440000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 294, name: "Roosevelt Valor", price: 700000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 295, name: "Stinger", price: 160000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 296, name: "Stinger GT", price: 150000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 297, name: "Swinger", price: 700000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 298, name: "Tornado Custom", price: 100000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 299, name: "Z-Type", price: 3000000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 300, name: "Zion Classique", price: 34000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 301, name: "Burrito", price: 75000, category: "Vans", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 302, name: "Burrito de Gang", price: 90000, category: "Vans", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 303, name: "Burrito de Gang", price: 110000, category: "Vans", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 304, name: "Moonbeam", price: 36000, category: "Vans", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 305, name: "Moonbeam Custom", price: 70000, category: "Vans", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 306, name: "Paradise", price: 20000, category: "Vans", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 307, name: "Rumpo", price: 30000, category: "Vans", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 308, name: "Rumpo Custom", price: 39000, category: "Vans", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 309, name: "Speedo", price: 100000, category: "Vans", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 310, name: "Surfer Custom", price: 250000, category: "Vans", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 311, name: "Youga", price: 21600, category: "Vans", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 312, name: "Youga Classique", price: 12000, category: "Vans", image: "https://i.goopics.net/k4n9x1.png" },
-  { id: 313, name: "Youga Classique 4x4", price: 100000, category: "Vans", image: "https://i.goopics.net/k4n9x1.png" },
-];
+      { id: 1, name: "Asea", price: 30000, category: "Sedans", image: "https://i.goopics.net/tm9fi3.png" },
+      { id: 2, name: "Asterope GZ", price: 290000, category: "Sedans", image: "https://i.goopics.net/jaj3bg.png" },
+      { id: 3, name: "Cheburek", price: 65000, category: "Sedans", image: "https://i.goopics.net/u2rl1l.png" },
+      { id: 4, name: "Cognoscenti", price: 110000, category: "Sedans", image: "https://i.goopics.net/tm9fi3.png" },
+      { id: 5, name: "Emperor", price: 37000, category: "Sedans", image: "https://i.goopics.net/z4a682.png" },
+      { id: 6, name: "FR36", price: 350000, category: "Sedans", image: "https://i.goopics.net/z4a682.png" },
+      { id: 7, name: "Fugitive", price: 24000, category: "Sedans", image: "https://i.goopics.net/70z2v8.png" },
+      { id: 8, name: "Glendale", price: 150000, category: "Sedans", image: "https://i.goopics.net/i6f88h.png" },
+      { id: 9, name: "Intruder", price: 15000, category: "Sedans", image: "https://i.goopics.net/o078yv.png" },
+      { id: 10, name: "Minivan", price: 16000, category: "Sedans", image: "https://i.goopics.net/g3m7h8.png" },
+      { id: 11, name: "Premier", price: 16000, category: "Sedans", image: "https://i.goopics.net/o2l7z8.png" },
+      { id: 12, name: "Primo Custom", price: 28000, category: "Sedans", image: "https://i.goopics.net/4n6m9x.png" },
+      { id: 13, name: "Regina", price: 10000, category: "Sedans", image: "https://i.goopics.net/w8z1m4.png" },
+      { id: 14, name: "Rhinehart", price: 600000, category: "Sedans", image: "https://i.goopics.net/v7k3m1.png" },
+      { id: 15, name: "Schafter", price: 160000, category: "Sedans", image: "https://i.goopics.net/l4m9z2.png" },
+      { id: 16, name: "Stafford", price: 800000, category: "Sedans", image: "https://i.goopics.net/q7m2v8.png" },
+      { id: 17, name: "Stretch", price: 180000, category: "Sedans", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 18, name: "Super Diamond", price: 260000, category: "Sedans", image: "https://i.goopics.net/m8z2v4.png" },
+      { id: 19, name: "Surge", price: 100000, category: "Sedans", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 20, name: "Tailgater", price: 60000, category: "Sedans", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 21, name: "Warrener", price: 8000, category: "Sedans", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 22, name: "Warrener HKR", price: 50000, category: "Sedans", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 23, name: "Washington", price: 18000, category: "Sedans", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 24, name: "Cinquemila", price: 1300000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 25, name: "Cognoscenti Cabrio", price: 110000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 26, name: "Exemplar", price: 96000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 27, name: "F620", price: 64000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 28, name: "Felon", price: 84000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 29, name: "Felon GT", price: 90000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 30, name: "Jackal", price: 84000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 31, name: "Kanjo SJ", price: 150000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 32, name: "Oracle", price: 26000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 33, name: "Sentinel", price: 31000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 34, name: "Sentinel XS", price: 64000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 35, name: "Windsor", price: 190000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 36, name: "Windsor Drop", price: 84000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 37, name: "Zion", price: 72000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 38, name: "Zion Cabrio", price: 25000, category: "Coupés", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 39, name: "811", price: 1400000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 40, name: "Adder", price: 1000000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 41, name: "Autarch", price: 1800000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 42, name: "Banshee 900R", price: 440000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 43, name: "Bullet", price: 180000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 44, name: "Cheetah", price: 440000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 45, name: "Comet Rétro Custom", price: 900000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 46, name: "Coquette D10", price: 1300000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 47, name: "Corsita", price: 1700000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 48, name: "Cyclone", price: 1900000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 49, name: "Deveste Eight", price: 2800000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 50, name: "ETR1", price: 440000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 51, name: "Elegy Rétro Custom", price: 600000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 52, name: "Emerus", price: 1700000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 53, name: "Entity MT", price: 2500000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 54, name: "Entity XF", price: 700000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 55, name: "Entity XXR", price: 1700000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 56, name: "FMJ", price: 1500000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 57, name: "Furia", price: 2800000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 58, name: "GP1", price: 3700000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 59, name: "Ignus", price: 4000000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 60, name: "Infernus", price: 360000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 61, name: "Itali GTB", price: 2500000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 62, name: "Itali GTB Custom", price: 3000000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 63, name: "Itali RSX", price: 4000000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 64, name: "Jester Classique", price: 600000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 65, name: "Krieger", price: 2400000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 66, name: "LM87", price: 4400000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 67, name: "Nero Custom", price: 2400000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 68, name: "Osiris", price: 380000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 69, name: "Penetrator", price: 3500000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 70, name: "RE-7B", price: 650000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 71, name: "Reaper", price: 300000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 72, name: "S80RR", price: 4000000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 73, name: "SC1", price: 1600000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 74, name: "Schlagen GT", price: 1700000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 75, name: "Sultan RS", price: 600000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 76, name: "T20", price: 1000000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 77, name: "Taipan", price: 2600000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 78, name: "Tezeract", price: 4800000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 79, name: "Thrax", price: 4800000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 80, name: "Tigon", price: 5000000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 81, name: "Torero XO", price: 1600000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 82, name: "Turismo R", price: 680000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 83, name: "Turismo Classique", price: 100000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 84, name: "Tyrus", price: 1200000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 85, name: "Vacca", price: 240000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 86, name: "Vagner", price: 2000000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 87, name: "Visione", price: 4500000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 88, name: "Voltic", price: 1800000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 89, name: "X80 Proto", price: 5000000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 90, name: "XA-21", price: 2000000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 91, name: "Zeno", price: 770000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 92, name: "Zentorno", price: 1400000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 93, name: "Zorrusso", price: 800000, category: "Super", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 94, name: "Asbo", price: 90000, category: "Compacts", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 95, name: "Blista", price: 20000, category: "Compacts", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 96, name: "Blista Kanjo", price: 40000, category: "Compacts", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 97, name: "Brioso 300 Large", price: 100000, category: "Compacts", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 98, name: "Brioso R/A", price: 14000, category: "Compacts", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 99, name: "Dilettante", price: 25000, category: "Compacts", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 100, name: "Issi", price: 10000, category: "Compacts", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 101, name: "Issi Classique", price: 16000, category: "Compacts", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 102, name: "Panto", price: 4000, category: "Compacts", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 103, name: "Prairie", price: 12000, category: "Compacts", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 104, name: "Previon", price: 80000, category: "Compacts", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 105, name: "Benson", price: 600000, category: "Commerciaux", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 106, name: "Biff", price: 200000, category: "Commerciaux", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 107, name: "Camion de Ferailleur", price: 400000, category: "Commerciaux", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 108, name: "Fieldmaster", price: 400000, category: "Commerciaux", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 109, name: "Mule", price: 240000, category: "Commerciaux", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 110, name: "Packer", price: 800000, category: "Commerciaux", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 111, name: "Pounder", price: 1000000, category: "Commerciaux", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 112, name: "Rubble", price: 180000, category: "Commerciaux", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 113, name: "Tipper", price: 180000, category: "Commerciaux", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 114, name: "4x4 Caracara", price: 700000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 115, name: "Bifta", price: 60000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 116, name: "Bison", price: 64000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 117, name: "Bobcat XL", price: 50000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 118, name: "Boor", price: 200000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 119, name: "Brawler", price: 400000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 120, name: "Buggy Raid", price: 160000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 121, name: "Dubsta 6x6", price: 400000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 122, name: "Everon", price: 1100000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 123, name: "Freecrawler", price: 500000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 124, name: "Guardian", price: 260000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 125, name: "Kalahari", price: 13000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 126, name: "Rancher XL", price: 70000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 127, name: "Riata", price: 760000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 128, name: "Sandking XL", price: 110000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 129, name: "Surfer", price: 24000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 130, name: "Trophy Truck", price: 120000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 131, name: "Vagrant", price: 50000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 132, name: "10 Large", price: 400000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 133, name: "8F Drafter", price: 500000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 134, name: "9F", price: 130000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 135, name: "9F Cabrio", price: 160000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 136, name: "Alpha", price: 210000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 137, name: "Banshee", price: 140000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 138, name: "Bestia GTS", price: 600000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 139, name: "Buffalo", price: 32000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 140, name: "Buffalo S", price: 52000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 141, name: "Calico GTF", price: 510000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 142, name: "Carbonizzare", price: 210000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 143, name: "Comet", price: 700000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 144, name: "Comet S2", price: 1300000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 145, name: "Comet S2 Cabrio", price: 1350000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 146, name: "Comet SR", price: 1100000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 147, name: "Coquette", price: 13000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 148, name: "Cypher", price: 900000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 149, name: "Elegy RH8", price: 77000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 150, name: "Euros", price: 620000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 151, name: "Feltzer", price: 124000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 152, name: "Flash GT", price: 900000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 153, name: "Furore GT", price: 350000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 154, name: "Fusilade", price: 80000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 155, name: "Futo", price: 70000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 156, name: "GB200", price: 620000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 157, name: "Growler", price: 1100000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 158, name: "Imorgon", price: 1100000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 159, name: "Issi Rallye", price: 420000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 160, name: "Issi Sport", price: 34000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 161, name: "Jester", price: 500000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 162, name: "Jester Course", price: 270000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 163, name: "Jester RR", price: 500000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 164, name: "Jugular", price: 440000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 165, name: "Khamelion", price: 150000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 166, name: "Komoda", price: 1500000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 167, name: "Kuruma", price: 230000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 168, name: "Locust", price: 1300000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 169, name: "Lynx", price: 80000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 170, name: "Mamba", price: 180000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 171, name: "Massacro", price: 130000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 172, name: "Massacro Course", price: 260000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 173, name: "Neo", price: 960000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 174, name: "Neon", price: 1200000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 175, name: "Omnis", price: 240000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 176, name: "Panthere", price: 620000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 177, name: "Paragon R", price: 800000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 178, name: "Pariah", price: 2840000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 179, name: "Penumbra", price: 56000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 180, name: "Penumbra FF", price: 88000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 181, name: "RT3000", price: 67000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 182, name: "Raiden", price: 2750000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 183, name: "Rapid GT", price: 150000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 184, name: "Raptor", price: 60000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 185, name: "Ruston", price: 1500000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 186, name: "SM722", price: 540000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 187, name: "Schafter LWB", price: 80000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 188, name: "Schafter V12", price: 380000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 189, name: "Sentinel Classique", price: 23000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 190, name: "Sentinel Classique Large", price: 50000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 191, name: "Seven-70", price: 79000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 192, name: "Specter", price: 1000000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 193, name: "Streiter", price: 500000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },    
+      { id: 194, name: "Sugoi", price: 180000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },    
+      { id: 195, name: "Sultan", price: 104000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },    
+      { id: 196, name: "Sultan RS Classique", price: 800000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },    
+      { id: 197, name: "Sultan Classique", price: 300000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },    
+      { id: 198, name: "Surano", price: 100000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },    
+      { id: 199, name: "Tailgater S", price: 300000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },    
+      { id: 200, name: "Tampa Drift", price: 160000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },    
+      { id: 201, name: "Tropos Rallye", price: 350000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },    
+      { id: 202, name: "V-STR", price: 1100000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },    
+      { id: 203, name: "Vectre", price: 74000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },    
+      { id: 204, name: "Verlierer", price: 140000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },    
+      { id: 205, name: "ZR350", price: 130000, category: "Sportifs", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 206, name: "Astron", price: 1100000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 207, name: "Baller", price: 100000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 208, name: "Baller LE", price: 150000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 209, name: "Baller ST-D", price: 1500000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 210, name: "Cavalcade", price: 80000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 211, name: "Contender", price: 150000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 212, name: "Dubsta", price: 70000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 213, name: "Dubsta", price: 120000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 214, name: "FQ2", price: 25000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 215, name: "Granger", price: 100000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 216, name: "Gresley", price: 60000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 217, name: "Huntley S", price: 80000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 218, name: "I-Wagen", price: 250000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 219, name: "Landstalker", price: 70000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 220, name: "Landstalker XL", price: 240000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 221, name: "Mesa", price: 32000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 222, name: "Mesa", price: 65000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 223, name: "Novak", price: 300000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 224, name: "Patriot", price: 70000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 225, name: "Radius", price: 58000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 226, name: "Rebla GTS", price: 500000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 227, name: "Rocoto", price: 66000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 228, name: "Seminole", price: 300000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 229, name: "Toros", price: 990000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 230, name: "Vivanite", price: 125000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 231, name: "XLS", price: 42000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 232, name: "Blade", price: 140000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 233, name: "Broadway", price: 150000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 234, name: "Buccaneer", price: 36000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 235, name: "Buccaneer Custom", price: 40000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 236, name: "Chino", price: 130000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 237, name: "Chino Custom", price: 156000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 238, name: "Clique", price: 160000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 239, name: "Coquette BlackFin", price: 500000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 240, name: "Deviant", price: 300000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 241, name: "Dominator", price: 65000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 242, name: "Dominator ASP", price: 200000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 243, name: "Dominator GT", price: 900000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 244, name: "Dominator GTT", price: 250000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 245, name: "Dominator GTX", price: 200000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 246, name: "Dukes", price: 56000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 247, name: "Ellie", price: 190000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 248, name: "Faction", price: 40000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 249, name: "Faction Custom", price: 60000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 250, name: "Faction Custom Donk", price: 256000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 251, name: "Gauntlet", price: 60000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 252, name: "Gauntlet Hellfire", price: 500000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 253, name: "Gauntlet Classique", price: 300000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 254, name: "Hermes", price: 1070000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 255, name: "Hotknife", price: 250000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 256, name: "Hustler", price: 1060000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 257, name: "Impaler", price: 300000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 258, name: "Nightshade", price: 220000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 259, name: "Peyote Gasser", price: 1070000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 260, name: "Phoenix", price: 25000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 261, name: "Picador", price: 36000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 262, name: "Ruiner ZZ-8", price: 100000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 263, name: "Sabre Turbo", price: 40000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 264, name: "Sabre Turbo Custom", price: 50000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 265, name: "Slamvan Custom", price: 23000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 266, name: "Tahoma Coupé", price: 800000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 267, name: "Tampa", price: 32000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 268, name: "Tulip M-100", price: 200000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 269, name: "Vamos", price: 80000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 270, name: "Vigero", price: 25000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 271, name: "Vigero ZX", price: 200000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 272, name: "Vigero ZX Décapotable", price: 1300000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 273, name: "Virgo", price: 28000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 274, name: "Virgo Classique Custom", price: 70000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 275, name: "Voodoo Custom", price: 14400, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 276, name: "Yosemite", price: 240000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 277, name: "Yosemite Drift", price: 200000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 278, name: "190Z", price: 180000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 279, name: "Casco", price: 700000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 280, name: "Coquette Classique", price: 300000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 281, name: "Dynasty", price: 350000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 282, name: "Franken Stange", price: 660000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 283, name: "GT500", price: 1000000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 284, name: "Hotring Sabre", price: 130000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 285, name: "La Coureuse", price: 190000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 286, name: "Manana", price: 25600, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 287, name: "Monroe", price: 110000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 288, name: "Peyote", price: 56000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 289, name: "Pigalle", price: 40000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 290, name: "Rapid GT Classique", price: 177000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 291, name: "Retinue", price: 123000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 292, name: "Retinue MK II", price: 70000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 293, name: "Roosevelt", price: 440000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 294, name: "Roosevelt Valor", price: 700000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 295, name: "Stinger", price: 160000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 296, name: "Stinger GT", price: 150000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 297, name: "Swinger", price: 700000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 298, name: "Tornado Custom", price: 100000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 299, name: "Z-Type", price: 3000000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 300, name: "Zion Classique", price: 34000, category: "Sports Classiques", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 301, name: "Burrito", price: 75000, category: "Vans", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 302, name: "Burrito de Gang", price: 90000, category: "Vans", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 303, name: "Burrito de Gang", price: 110000, category: "Vans", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 304, name: "Moonbeam", price: 36000, category: "Vans", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 305, name: "Moonbeam Custom", price: 70000, category: "Vans", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 306, name: "Paradise", price: 20000, category: "Vans", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 307, name: "Rumpo", price: 30000, category: "Vans", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 308, name: "Rumpo Custom", price: 39000, category: "Vans", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 309, name: "Speedo", price: 100000, category: "Vans", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 310, name: "Surfer Custom", price: 250000, category: "Vans", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 311, name: "Youga", price: 21600, category: "Vans", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 312, name: "Youga Classique", price: 12000, category: "Vans", image: "https://i.goopics.net/k4n9x1.png" },
+      { id: 313, name: "Youga Classique 4x4", price: 100000, category: "Vans", image: "https://i.goopics.net/k4n9x1.png" },
+    ];
 
     function renderProducts() {
       const grid = document.getElementById('productGrid');
@@ -465,7 +458,6 @@
       const sort = document.getElementById('sortSelect').value;
       const category = document.getElementById('categorySelect').value;
       
-      // MODIF : Gestion prix indépendante (si vide = 0 ou Infinity)
       const minInput = document.getElementById('minPrice').value;
       const maxInput = document.getElementById('maxPrice').value;
       const minP = minInput !== "" ? parseFloat(minInput) : 0;
@@ -478,7 +470,6 @@
         return matchesSearch && matchesCat && matchesPrice;
       });
 
-      // TRI
       if (sort === 'name-asc') filtered.sort((a,b) => a.name.localeCompare(b.name));
       else if (sort === 'name-desc') filtered.sort((a,b) => b.name.localeCompare(a.name));
       else if (sort === 'price-asc') filtered.sort((a,b) => a.price - b.price);
@@ -492,28 +483,25 @@
       noResults.classList.add('hidden');
 
       grid.innerHTML = filtered.map(p => `
-          <article class="product-card rounded-[2.5rem] p-8 flex flex-col items-center text-center">
-              <!-- MODIF : Badge catégorie agrandi -->
-              <div class="category-badge text-[11px] font-black px-6 py-2 rounded-full uppercase tracking-widest mb-6">
+          <article class="product-card rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-8 flex flex-col items-center text-center">
+              <div class="category-badge text-[9px] md:text-[11px] font-black px-4 md:px-6 py-2 rounded-full uppercase tracking-widest mb-4 md:mb-6">
                 ${p.category}
               </div>
-              <div class="relative w-full h-40 mb-8 flex items-center justify-center">
+              <div class="relative w-full h-32 md:h-40 mb-6 md:mb-8 flex items-center justify-center">
                   <img src="${p.image}" alt="${p.name}" class="max-w-full max-h-full object-contain transition-transform duration-500 hover:scale-110">
               </div>
-              <h3 class="text-white font-black text-2xl uppercase tracking-tighter italic mb-2">${p.name}</h3>
-              <div class="h-px w-10 bg-[#ff4d4d] opacity-50 mb-6"></div>
+              <h3 class="text-white font-black text-xl md:text-2xl uppercase tracking-tighter italic mb-2">${p.name}</h3>
+              <div class="h-px w-10 bg-[#ff4d4d] opacity-50 mb-4 md:mb-6"></div>
               <div class="mt-auto">
-                  <span class="text-gray-500 text-[10px] font-black uppercase tracking-[0.3em] block mb-1">Prix de vente</span>
-                  <!-- MODIF : $ de la même taille que le prix -->
-                  <span class="text-3xl font-black text-white italic">
-                    ${p.price.toLocaleString()} <span class="text-[#ff4d4d] not-italic text-3xl">$</span>
+                  <span class="text-gray-500 text-[8px] md:text-[10px] font-black uppercase tracking-[0.3em] block mb-1">Prix de vente</span>
+                  <span class="text-2xl md:text-3xl font-black text-white italic">
+                    ${p.price.toLocaleString()} <span class="text-[#ff4d4d] not-italic text-2xl md:text-3xl">$</span>
                   </span>
               </div>
           </article>
       `).join('');
     }
 
-    // LISTENERS
     ['searchInput', 'sortSelect', 'categorySelect', 'minPrice', 'maxPrice'].forEach(id => {
       document.getElementById(id).addEventListener('input', renderProducts);
     });
@@ -526,7 +514,6 @@
         renderProducts();
     });
 
-    // INIT
     renderProducts();
   </script>
 </body>
