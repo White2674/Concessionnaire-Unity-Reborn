@@ -10,6 +10,7 @@
   <style>
     body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0d0d0d; color: #ffffff; overflow-x: hidden; }
     
+    /* STYLE IDENTIQUE À TON INDEX */
     .nav-permanent { background: #0d0d0d; border-bottom: 1px solid rgba(255,255,255,0.05); }
 
     .header-gradient {
@@ -18,6 +19,7 @@
         background-size: cover; background-position: center;
     }
 
+    /* CARTES VÉHICULES */
     .product-card { background: #1a1a1a; border: 1px solid #252525; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; }
     .product-card:hover { border-color: #ff4d4d; transform: translateY(-8px); box-shadow: 0 20px 40px rgba(255, 77, 77, 0.05); }
     
@@ -31,21 +33,24 @@
     
     select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23ff4d4d'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1.5rem center; background-size: 1rem; }
 
-    /* --- AJOUTS MOBILE --- */
+    /* --- MENU MOBILE LATÉRAL (IDENTIQUE INDEX) --- */
+    #mobile-menu { transform: translateX(100%); transition: transform 0.4s ease; }
+    #mobile-menu.open { transform: translateX(0); }
+
+    /* RESPONSIVE AJUSTEMENTS */
     @media (max-width: 768px) {
-        .header-gradient h1 { font-size: 3.5rem !important; line-height: 1.1; }
+        .header-gradient h1 { font-size: 3.2rem !important; line-height: 1; }
         .filter-panel { padding: 1.5rem !important; border-radius: 2rem !important; margin: 0 10px; }
         #productGrid { grid-template-columns: 1fr !important; gap: 1.5rem; }
-        .mobile-nav-overlay { display: none; }
-        .mobile-nav-overlay.active { display: flex; }
     }
   </style>
 </head>
 <body>
 
-<!-- HEADER AVEC MENU MOBILE -->
+<!-- HEADER -->
 <header id="header" class="fixed top-0 left-0 w-full z-50 nav-permanent">
   <nav class="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 md:px-12">
+    
     <a href="index.html" class="flex items-center gap-4 group">
       <img src="https://i.goopics.net/srmg4w.png" alt="Logo" class="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
       <div class="h-8 w-[1px] bg-white/10 hidden sm:block"></div>
@@ -54,8 +59,8 @@
       </div>
     </a>
 
-    <!-- Menu Desktop -->
-    <div class="hidden lg:flex items-center gap-8 text-[11px] font-black uppercase tracking-[0.2em] text-gray-400">
+    <!-- NAV DESKTOP -->
+    <nav class="hidden md:flex items-center gap-8 text-[11px] font-black uppercase tracking-[0.2em] text-gray-400">
       <ul class="flex items-center gap-8">
         <li><a href="index.html" class="hover:text-white transition">Accueil</a></li>
         <li><a href="catalogue.html" class="text-white border-b-2 border-[#ff4d4d] pb-1">Catalogue</a></li>
@@ -64,24 +69,30 @@
         <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
       </ul>
       <a href="candidature.html" class="bg-[#ff4d4d] text-white py-3 px-6 rounded-xl hover:scale-105 transition shadow-lg shadow-red-900/20">📝 Candidature</a>
-    </div>
+    </nav>
 
-    <!-- Bouton Hamburger Mobile -->
-    <button id="openMobileBtn" class="lg:hidden text-[#ff4d4d]">
-      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+    <!-- BOUTON BURGER (MOBILE) -->
+    <button id="burger-btn" class="md:hidden text-white">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
     </button>
   </nav>
 </header>
 
-<!-- Overlay Menu Mobile -->
-<div id="mobileMenu" class="fixed inset-0 bg-black/f8 z-[100] hidden flex-col items-center justify-center gap-8 text-xl font-black uppercase tracking-widest transition-all">
-    <button id="closeMobileBtn" class="absolute top-8 right-8 text-[#ff4d4d] text-sm">FERMER ✕</button>
-    <a href="index.html" class="hover:text-[#ff4d4d]">Accueil</a>
-    <a href="catalogue.html" class="text-[#ff4d4d]">Catalogue</a>
-    <a href="avis.html">Avis</a>
-    <a href="equipe.html">L'Équipe</a>
-    <a href="contact.html">Contact</a>
-    <a href="candidature.html" class="bg-[#ff4d4d] px-8 py-4 rounded-2xl">📝 Candidature</a>
+<!-- MENU LATÉRAL MOBILE (IDENTIQUE INDEX) -->
+<div id="mobile-menu" class="fixed inset-y-0 right-0 w-[280px] bg-[#0d0d0d] z-[60] border-l border-white/10 p-10 flex flex-col gap-8 md:hidden">
+  <button id="close-btn" class="self-end text-white">
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+  </button>
+  <ul class="flex flex-col gap-6 text-sm font-black uppercase tracking-widest text-gray-400">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="catalogue.html" class="text-white">Catalogue</a></li>
+    <li><a href="avis.html">Avis Clients</a></li>
+    <li><a href="equipe.html">L'Équipe</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="candidature.html" class="bg-[#ff4d4d] text-center text-white py-4 rounded-xl font-black uppercase text-[10px] tracking-widest">
+    📝 Candidature
+  </a>
 </div>
 
   <!-- TITRE PAGE -->
@@ -141,11 +152,9 @@
       </div>
   </section>
 
-  <!-- GRILLE CATALOGUE -->
+  <!-- GRILLE -->
   <main class="max-w-7xl mx-auto px-6 py-24">
-      <div id="productGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          <!-- Injecté par JS -->
-      </div>
+      <div id="productGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
       <div id="noResults" class="hidden text-center py-20 opacity-20 font-black text-3xl uppercase tracking-tighter">AUCUN VÉHICULE TROUVÉ</div>
   </main>
 
@@ -154,7 +163,7 @@
   </footer>
 
   <script>
-    // COLLE TES 533 LIGNES DE PRODUITS ICI
+    // COLLE TES 533 LIGNES ICI
     const products = [
   { id: 1, name: "Asea", price: 30000, category: "Sedans", image: "https://i.goopics.net/tm9fi3.png" },
   { id: 2, name: "Asterope GZ", price: 290000, category: "Sedans", image: "https://i.goopics.net/jaj3bg.png" },
@@ -260,7 +269,7 @@
   { id: 102, name: "Panto", price: 4000, category: "Compacts", image: "https://i.goopics.net/k4n9x1.png" },
   { id: 103, name: "Prairie", price: 12000, category: "Compacts", image: "https://i.goopics.net/k4n9x1.png" },
   { id: 104, name: "Previon", price: 80000, category: "Compacts", image: "https://i.goopics.net/k4n9x1.png" },
- { id: 105, name: "Benson", price: 600000, category: "Commerciaux", image: "https://i.goopics.net/k4n9x1.png" },
+  { id: 105, name: "Benson", price: 600000, category: "Commerciaux", image: "https://i.goopics.net/k4n9x1.png" },
   { id: 106, name: "Biff", price: 200000, category: "Commerciaux", image: "https://i.goopics.net/k4n9x1.png" },
   { id: 107, name: "Camion de Ferailleur", price: 400000, category: "Commerciaux", image: "https://i.goopics.net/k4n9x1.png" },
   { id: 108, name: "Fieldmaster", price: 400000, category: "Commerciaux", image: "https://i.goopics.net/k4n9x1.png" },
@@ -269,7 +278,7 @@
   { id: 111, name: "Pounder", price: 1000000, category: "Commerciaux", image: "https://i.goopics.net/k4n9x1.png" },
   { id: 112, name: "Rubble", price: 180000, category: "Commerciaux", image: "https://i.goopics.net/k4n9x1.png" },
   { id: 113, name: "Tipper", price: 180000, category: "Commerciaux", image: "https://i.goopics.net/k4n9x1.png" },
- { id: 114, name: "4x4 Caracara", price: 700000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
+  { id: 114, name: "4x4 Caracara", price: 700000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
   { id: 115, name: "Bifta", price: 60000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
   { id: 116, name: "Bison", price: 64000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
   { id: 117, name: "Bobcat XL", price: 50000, category: "Offroad", image: "https://i.goopics.net/k4n9x1.png" },
@@ -387,7 +396,7 @@
   { id: 229, name: "Toros", price: 990000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
   { id: 230, name: "Vivanite", price: 125000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
   { id: 231, name: "XLS", price: 42000, category: "SUV", image: "https://i.goopics.net/k4n9x1.png" },
-{ id: 232, name: "Blade", price: 140000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
+  { id: 232, name: "Blade", price: 140000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
   { id: 233, name: "Broadway", price: 150000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
   { id: 234, name: "Buccaneer", price: 36000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
   { id: 235, name: "Buccaneer Custom", price: 40000, category: "Muscles", image: "https://i.goopics.net/k4n9x1.png" },
@@ -474,15 +483,11 @@
     function renderProducts() {
       const grid = document.getElementById('productGrid');
       const noResults = document.getElementById('noResults');
-      
       const search = document.getElementById('searchInput').value.toUpperCase();
       const sort = document.getElementById('sortSelect').value;
       const category = document.getElementById('categorySelect').value;
-      
-      const minInput = document.getElementById('minPrice').value;
-      const maxInput = document.getElementById('maxPrice').value;
-      const minP = minInput !== "" ? parseFloat(minInput) : 0;
-      const maxP = maxInput !== "" ? parseFloat(maxInput) : Infinity;
+      const minP = document.getElementById('minPrice').value !== "" ? parseFloat(document.getElementById('minPrice').value) : 0;
+      const maxP = document.getElementById('maxPrice').value !== "" ? parseFloat(document.getElementById('maxPrice').value) : Infinity;
 
       let filtered = products.filter(p => {
         const matchesSearch = p.name.toUpperCase().includes(search);
@@ -505,9 +510,7 @@
 
       grid.innerHTML = filtered.map(p => `
           <article class="product-card rounded-[2.5rem] p-8 flex flex-col items-center text-center">
-              <div class="category-badge text-[11px] font-black px-6 py-2 rounded-full uppercase tracking-widest mb-6">
-                ${p.category}
-              </div>
+              <div class="category-badge text-[11px] font-black px-6 py-2 rounded-full uppercase tracking-widest mb-6">${p.category}</div>
               <div class="relative w-full h-40 mb-8 flex items-center justify-center">
                   <img src="${p.image}" alt="${p.name}" class="max-w-full max-h-full object-contain transition-transform duration-500 hover:scale-110">
               </div>
@@ -523,20 +526,13 @@
       `).join('');
     }
 
-    // GESTION MENU MOBILE
-    const openBtn = document.getElementById('openMobileBtn');
-    const closeBtn = document.getElementById('closeMobileBtn');
-    const menu = document.getElementById('mobileMenu');
+    // JS DU MENU MOBILE (IDENTIQUE INDEX)
+    const burgerBtn = document.getElementById('burger-btn');
+    const closeBtn = document.getElementById('close-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-    openBtn.addEventListener('click', () => {
-        menu.classList.remove('hidden');
-        menu.classList.add('flex');
-    });
-
-    closeBtn.addEventListener('click', () => {
-        menu.classList.add('hidden');
-        menu.classList.remove('flex');
-    });
+    burgerBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+    closeBtn.addEventListener('click', () => mobileMenu.classList.remove('open'));
 
     // LISTENERS FILTRES
     ['searchInput', 'sortSelect', 'categorySelect', 'minPrice', 'maxPrice'].forEach(id => {
